@@ -1,16 +1,12 @@
 @import "tailwindcss";
+@import "./theme.css";
+@import "./text-styles.css";
+@import "./typography.css";
 
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-react-aria-components";
 @plugin "tailwindcss-animate";
 @plugin "@designbycode/tailwindcss-mask-image";
-
-@import "./theme.css";
-@import "./text-styles.css";
-@import "./typography.css";
-
-@source "../components/application/code-snippet/code-snippet.style.css";
-
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still

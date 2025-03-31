@@ -1,45 +1,19 @@
 "use client";
 
-import type { FormEvent } from "react";
 import { Fragment } from "react";
 import { ArrowRight } from "@untitledui/icons";
-import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { toast } from "sonner";
 import { BadgeGroup } from "@/components/shared/badges/badge-groups";
 import { Button } from "@/components/shared/buttons/button";
 import { Form } from "@/components/shared/form/form";
 import { Input } from "@/components/shared/input";
-import { cx } from "@/components/utils/cx";
 import Spiral from "../../public/marketing/spirals.webp";
 
 const Header = dynamic(() => import("@/components/marketing/header-navigation/components/header").then((mod) => mod.Header));
 
 export const HomeScreen = () => {
-    const { systemTheme } = useTheme();
-
-    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        const data = new FormData(event.currentTarget);
-
-        toast.custom((t) => (
-            <div
-                key={t}
-                className={cx(
-                    "light-mode relative z-[var(--z-index)] flex max-w-full flex-col gap-4 rounded-xl border border-primary bg-primary p-4 shadow-lg xs:w-[var(--width)] xs:flex-row",
-                    systemTheme === "dark" && "dark-mode",
-                )}
-            >
-                <pre className="w-full rounded-lg bg-secondary p-4 text-primary">
-                    <code>{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            </div>
-        ));
-    };
-
     return (
         <Fragment>
             <Header />
@@ -61,10 +35,7 @@ export const HomeScreen = () => {
                             Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
                         </p>
 
-                        <Form
-                            onSubmit={onSubmit}
-                            className="mt-8 flex w-full flex-col items-stretch gap-4 md:mt-12 md:max-w-[480px] md:flex-row md:items-start"
-                        >
+                        <Form className="mt-8 flex w-full flex-col items-stretch gap-4 md:mt-12 md:max-w-[480px] md:flex-row md:items-start">
                             <Input
                                 isRequired
                                 size="md"

@@ -48,12 +48,12 @@ export const SelectItem = ({ label, id, value, avatarUrl, supportingText, isDisa
                     ) : null}
 
                     <section className="flex w-full min-w-0 flex-1 flex-wrap gap-x-2">
-                        <Text slot="label" className={cx("truncate tt-md-md whitespace-nowrap text-primary", state.isDisabled && "text-disabled")}>
+                        <Text slot="label" className={cx("truncate text-md font-medium whitespace-nowrap text-primary", state.isDisabled && "text-disabled")}>
                             {label || (typeof children === "function" ? children(state) : children)}
                         </Text>
 
                         {supportingText && (
-                            <Text slot="description" className={cx("tt-md whitespace-nowrap text-tertiary", state.isDisabled && "text-disabled")}>
+                            <Text slot="description" className={cx("text-md whitespace-nowrap text-tertiary", state.isDisabled && "text-disabled")}>
                                 {supportingText}
                             </Text>
                         )}

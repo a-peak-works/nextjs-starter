@@ -69,14 +69,14 @@ export const Checkbox = ({ label, hint, size = "sm", className, ...ariaCheckboxP
         sm: {
             root: "gap-2",
             textWrapper: "",
-            label: "tt-sm-md",
-            hint: "tt-sm",
+            label: "text-sm font-medium",
+            hint: "text-sm",
         },
         md: {
             root: "gap-3",
             textWrapper: "gap-0.5",
-            label: "tt-md-md",
-            hint: "tt-md",
+            label: "text-md font-medium",
+            hint: "text-md",
         },
     };
 

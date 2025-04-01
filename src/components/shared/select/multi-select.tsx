@@ -283,7 +283,7 @@ const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }:
                     <span key={value.id} className="flex items-center rounded-md bg-primary py-0.5 pr-1 pl-[5px] ring-1 ring-border-primary ring-inset">
                         <Avatar size="xxs" alt={value?.label} src={value?.avatarUrl} />
 
-                        <p className="ml-[5px] truncate tt-sm-md whitespace-nowrap text-secondary select-none">{value?.label}</p>
+                        <p className="ml-[5px] truncate text-sm font-medium whitespace-nowrap text-secondary select-none">{value?.label}</p>
 
                         <TagCloseX
                             size="md"
@@ -300,7 +300,7 @@ const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }:
                 <AriaInput
                     placeholder={placeholder}
                     onKeyDown={handleInputKeyDown}
-                    className="w-full flex-[1_0_0] appearance-none bg-transparent tt-md text-ellipsis text-primary caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
+                    className="w-full flex-[1_0_0] appearance-none bg-transparent text-md text-ellipsis text-primary caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
                 />
 
                 {shortcut && (
@@ -313,7 +313,7 @@ const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }:
                     >
                         <span
                             className={cx(
-                                "pointer-events-none rounded px-1 py-px tt-xs-md text-quaternary ring-1 ring-border-secondary select-none ring-inset",
+                                "pointer-events-none rounded px-1 py-px text-xs font-medium text-quaternary ring-1 ring-border-secondary select-none ring-inset",
                                 isDisabled && "bg-transparent text-disabled",
                             )}
                         >
@@ -337,7 +337,9 @@ export const ComboBoxTagsValue = ({
 }: ComboBoxValueProps) => {
     const state = useContext(ComboBoxStateContext);
 
-    useHotkeys("meta+k", () => state?.setOpen(true), { enabled: !isDisabled && shortcut });
+    useHotkeys("meta+k", () => state?.setOpen(true), {
+        enabled: !isDisabled && shortcut,
+    });
 
     return (
         <AriaGroup

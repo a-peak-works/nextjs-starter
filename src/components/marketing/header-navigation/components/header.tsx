@@ -17,10 +17,18 @@ type HeaderNavItem = {
 };
 
 const headerNavItems: HeaderNavItem[] = [
-    { label: "Products", href: "/products", menu: <DropdownMenuSimple /> },
+    {
+        label: "Products",
+        href: "/products",
+        menu: <DropdownMenuSimple />,
+    },
     { label: "Services", href: "/Services", menu: <DropdownMenuSimple /> },
     { label: "Pricing", href: "/pricing" },
-    { label: "Resources", href: "/resources", menu: <DropdownMenuSimple /> },
+    {
+        label: "Resources",
+        href: "/resources",
+        menu: <DropdownMenuSimple />,
+    },
     { label: "About", href: "/about" },
 ];
 
@@ -41,7 +49,7 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
     if (props.href) {
         return (
             <li>
-                <a href={props.href} className="flex items-center justify-between px-4 py-3 tt-md-semi text-primary hover:bg-primary_hover">
+                <a href={props.href} className="flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover">
                     {props.label}
                 </a>
             </li>
@@ -53,7 +61,7 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
             <button
                 aria-expanded={isOpen}
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full items-center justify-between px-4 py-3 tt-md-semi text-primary hover:bg-primary_hover"
+                className="flex w-full items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover"
             >
                 {props.label}{" "}
                 <ChevronDown
@@ -129,7 +137,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                                     <li key={navItem.label}>
                                         {navItem.menu ? (
                                             <DialogTrigger defaultOpen={autoOpenMenu && navItem.label === "Resources"}>
-                                                <AriaButton className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 tt-md-semi text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-2 focus:outline-offset-2">
+                                                <AriaButton className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 text-md font-semibold text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-2 focus:outline-offset-2">
                                                     <span className="px-0.5">{navItem.label}</span>
 
                                                     <ChevronDown className="size-4 rotate-0 stroke-[2.625px] text-fg-quaternary transition duration-100 ease-linear in-aria-expanded:-rotate-180" />
@@ -167,7 +175,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                                         ) : (
                                             <a
                                                 href={navItem.href}
-                                                className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 tt-md-semi text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-2 focus:outline-offset-2"
+                                                className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 text-md font-semibold text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-2 focus:outline-offset-2"
                                             >
                                                 <span className="px-0.5">{navItem.label}</span>
                                             </a>

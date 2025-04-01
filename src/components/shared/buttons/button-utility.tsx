@@ -1,11 +1,11 @@
 "use client";
 
 import type { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from "react";
-import React, { isValidElement } from "react";
+import { isValidElement } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import { Button as AriaButton } from "react-aria-components";
 import { cx, sortCx } from "@/components/utils/cx";
-import { isReactComponent } from "@/components/utils/isReactComponent";
+import { isReactComponent } from "@/components/utils/is-react-component";
 import { Tooltip } from "../tooltips/tooltips";
 
 export const styles = sortCx({

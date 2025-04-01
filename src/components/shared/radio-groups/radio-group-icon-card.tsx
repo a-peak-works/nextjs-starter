@@ -61,7 +61,9 @@ export const RadioGroupIconCard = ({ items, size = "sm", className, ...props }: 
                                     className={cx(isDisabled && "bg-disabled text-fg-disabled")}
                                 />
 
-                                <span className={cx("mr-1 text-secondary", size === "md" ? "tt-lg-semi" : "tt-md-semi")}>{plan.title}</span>
+                                <span className={cx("mr-1 text-secondary", size === "md" ? "text-lg font-semibold" : "text-md font-semibold")}>
+                                    {plan.title}
+                                </span>
 
                                 <CheckboxBase
                                     size={size === "md" ? "md" : "sm"}
@@ -75,10 +77,14 @@ export const RadioGroupIconCard = ({ items, size = "sm", className, ...props }: 
                             <div className="flex flex-col-reverse items-start justify-between gap-4 rounded-b-lg p-4 sm:flex-row sm:gap-1">
                                 <div className={cx("flex flex-col", size === "md" ? "gap-2" : "gap-1")}>
                                     <p className="flex items-baseline gap-1">
-                                        <span className={cx("text-secondary", size === "md" ? "td-md-semi" : "td-sm-semi")}>{plan.price}</span>
-                                        <span className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>{plan.secondaryTitle}</span>
+                                        <span
+                                            className={cx("text-secondary", size === "md" ? "text-display-md font-semibold" : "text-display-sm font-semibold")}
+                                        >
+                                            {plan.price}
+                                        </span>
+                                        <span className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>{plan.secondaryTitle}</span>
                                     </p>
-                                    <p className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>{plan.description}</p>
+                                    <p className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>{plan.description}</p>
                                 </div>
                                 {plan.badge && (
                                     <BadgeWithDot size="sm" type="modern" color="success">

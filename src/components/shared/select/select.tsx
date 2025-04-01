@@ -83,11 +83,11 @@ const SelectValue = (props: SelectValueProps) => {
 
                             {state.selectedItem ? (
                                 <section className="flex w-full gap-2 truncate">
-                                    <p className="truncate tt-md-md text-primary">{state.selectedItem?.label}</p>
-                                    {state.selectedItem?.supportingText && <p className="tt-md text-tertiary">{state.selectedItem?.supportingText}</p>}
+                                    <p className="truncate text-md font-medium text-primary">{state.selectedItem?.label}</p>
+                                    {state.selectedItem?.supportingText && <p className="text-md text-tertiary">{state.selectedItem?.supportingText}</p>}
                                 </section>
                             ) : (
-                                <p className={cx("tt-md text-placeholder", props.isDisabled && "text-disabled")}>{props.placeholder}</p>
+                                <p className={cx("text-md text-placeholder", props.isDisabled && "text-disabled")}>{props.placeholder}</p>
                             )}
 
                             <ChevronDown size={20} aria-hidden="true" className="ml-auto shrink-0 text-fg-quaternary" />
@@ -99,7 +99,10 @@ const SelectValue = (props: SelectValueProps) => {
     );
 };
 
-export const SelectContext = createContext<{ type: Types; size: "sm" | "md" }>({ type: "default", size: "sm" });
+export const SelectContext = createContext<{ type: Types; size: "sm" | "md" }>({
+    type: "default",
+    size: "sm",
+});
 
 const Select = ({ type = "default", placeholder = "Select", placeholderIcon, size = "sm", children, items, label, hint, tooltip, ...rest }: SelectProps) => {
     return (

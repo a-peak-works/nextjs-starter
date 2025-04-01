@@ -51,10 +51,12 @@ export const RadioGroupIconSimple = ({ items, size = "sm", className, ...props }
 
                                 <div className={cx("flex flex-col", size === "md" ? "gap-0.5" : "")}>
                                     <Label className={cx("pointer-events-none flex", size === "md" ? "gap-1.5" : "gap-1")}>
-                                        <span className={cx("text-secondary", size === "md" ? "tt-md-md" : "tt-sm-md")}>{plan.title}</span>
-                                        <span className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>{plan.secondaryTitle}</span>
+                                        <span className={cx("text-secondary", size === "md" ? "text-md font-medium" : "text-sm font-medium")}>
+                                            {plan.title}
+                                        </span>
+                                        <span className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>{plan.secondaryTitle}</span>
                                     </Label>
-                                    <Text slot="description" className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>
+                                    <Text slot="description" className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>
                                         {plan.description}
                                     </Text>
                                 </div>

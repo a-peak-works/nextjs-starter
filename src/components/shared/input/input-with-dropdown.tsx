@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { ChevronDown } from "@untitledui/icons";
 import type { Key } from "react-aria-components";
 import { TextField } from "react-aria-components";
@@ -32,7 +31,7 @@ const SelectorComponent = (props: SelectorComponentProps) => {
                 autoComplete="input-dropdown"
                 onChange={(e) => props.onSelectionChange?.(e.target.value)}
                 className={cx(
-                    "flex h-full w-min appearance-none items-center gap-1 bg-inherit px-3 py-2 tt-md text-tertiary outline-hidden ring-inset focus:ring-2 focus:ring-border-brand disabled:cursor-not-allowed",
+                    "flex h-full w-min appearance-none items-center gap-1 bg-inherit px-3 py-2 text-md text-tertiary outline-hidden ring-inset focus:ring-2 focus:ring-border-brand disabled:cursor-not-allowed",
                     props.isInvalid && "focus:ring-2 focus:ring-border-error",
                     props.isDisabled && "text-disabled",
                     props.className,
@@ -138,7 +137,7 @@ export const InputWithDropdown = ({
                         {/* leading text if trailing dropdown is applied */}
                         {leadingText && (
                             <span className={cx("my-auto grow pr-2", paddings[size].leadingText)}>
-                                <p className={cx("tt-md text-tertiary", isDisabled && "text-disabled")}>{leadingText}</p>
+                                <p className={cx("text-md text-tertiary", isDisabled && "text-disabled")}>{leadingText}</p>
                             </span>
                         )}
 

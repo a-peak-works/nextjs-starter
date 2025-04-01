@@ -52,7 +52,7 @@ const DropdownItem = ({ label, children, addon, icon: Icon, unstyled, ...props }
 
                     <span
                         className={cx(
-                            "grow truncate tt-sm-semi",
+                            "grow truncate text-sm font-semibold",
                             state.isDisabled ? "text-disabled" : "text-secondary",
                             state.isFocused && "text-secondary_hover",
                         )}
@@ -63,7 +63,7 @@ const DropdownItem = ({ label, children, addon, icon: Icon, unstyled, ...props }
                     {addon && (
                         <span
                             className={cx(
-                                "ml-3 shrink-0 rounded px-1 py-px tt-xs-md ring-1 ring-border-secondary ring-inset",
+                                "ml-3 shrink-0 rounded px-1 py-px text-xs font-medium ring-1 ring-border-secondary ring-inset",
                                 state.isDisabled ? "text-disabled" : "text-quaternary",
                             )}
                         >

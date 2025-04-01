@@ -6,9 +6,9 @@ import { cx, sortCx } from "@/components/utils/cx";
 
 const styles = sortCx({
     default: "hidden",
-    bottom: "absolute top-2 left-1/2 -translate-x-1/2 translate-y-full text-md leading-md font-medium text-primary",
+    bottom: "absolute top-2 left-1/2 -translate-x-1/2 translate-y-full text-md font-medium text-primary",
     "top-floating":
-        "absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full rounded-lg bg-primary px-3 py-2 text-xs leading-xs font-semibold text-secondary shadow-lg ring-1 ring-border-secondary_alt",
+        "absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-secondary shadow-lg ring-1 ring-border-secondary_alt",
 });
 
 interface SliderProps extends AriaSliderProps {
@@ -35,7 +35,7 @@ export const Slider = ({
         <AriaSlider {...rest} {...{ minValue, maxValue, defaultValue }} formatOptions={formatOptions ?? defaultFormatOptions}>
             <Label />
             <SliderTrack className="relative h-2 w-full rounded-full bg-quaternary">
-                {({ state: { values, getThumbValue, getThumbPercent, getFormattedValue, getThumbValueLabel } }) => {
+                {({ state: { values, getThumbValue, getThumbPercent, getFormattedValue } }) => {
                     const left = getThumbPercent(0);
                     const width = getThumbPercent(1) - left;
 

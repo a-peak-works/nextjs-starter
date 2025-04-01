@@ -7,9 +7,30 @@ import { type AvatarProps } from "./avatar";
 import { AvatarOnlineIndicator, VerifiedTick } from "./base-components";
 
 const styles = {
-    sm: { root: "size-18", icon: "size-9", initials: "td-sm-semi", ring: "ring-3 shadow-md", status: "bottom-0.5 right-0.5", tick: "bottom-0 right-0" },
-    md: { root: "size-24", icon: "size-12", initials: "td-md-semi", ring: "ring-4 shadow-lg", status: "bottom-1 right-1", tick: "bottom-0.5 right-0.5" },
-    lg: { root: "size-40", icon: "size-20", initials: "td-xl-semi", ring: "ring-4 shadow-lg", status: "bottom-3 right-3", tick: "bottom-1 right-1" },
+    sm: {
+        root: "size-18",
+        icon: "size-9",
+        initials: "text-display-sm font-semibold",
+        ring: "ring-3 shadow-md",
+        status: "bottom-0.5 right-0.5",
+        tick: "bottom-0 right-0",
+    },
+    md: {
+        root: "size-24",
+        icon: "size-12",
+        initials: "text-display-md font-semibold",
+        ring: "ring-4 shadow-lg",
+        status: "bottom-1 right-1",
+        tick: "bottom-0.5 right-0.5",
+    },
+    lg: {
+        root: "size-40",
+        icon: "size-20",
+        initials: "text-display-xl font-semibold",
+        ring: "ring-4 shadow-lg",
+        status: "bottom-3 right-3",
+        tick: "bottom-1 right-1",
+    },
 };
 
 const tickSizeMap = {

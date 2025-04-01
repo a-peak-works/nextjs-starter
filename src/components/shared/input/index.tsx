@@ -88,7 +88,7 @@ export const InputBase = ({ size = "sm", placeholder, icon: Icon, isDisabled, is
                 ref={ref}
                 placeholder={placeholder}
                 className={cx(
-                    "m-0 w-full bg-transparent tt-md text-primary ring-0 outline-hidden placeholder:text-placeholder autofill:rounded-lg autofill:text-primary",
+                    "m-0 w-full bg-transparent text-md text-primary ring-0 outline-hidden placeholder:text-placeholder autofill:rounded-lg autofill:text-primary",
                     isDisabled && "cursor-not-allowed text-disabled",
                     sizes[size].root,
                     props.inputClassName,
@@ -125,7 +125,7 @@ export const InputBase = ({ size = "sm", placeholder, icon: Icon, isDisabled, is
                 >
                     <span
                         className={cx(
-                            "pointer-events-none rounded px-1 py-px tt-xs-md text-quaternary ring-1 ring-border-secondary select-none ring-inset",
+                            "pointer-events-none rounded px-1 py-px text-xs font-medium text-quaternary ring-1 ring-border-secondary select-none ring-inset",
                             isDisabled && "bg-transparent text-disabled",
                         )}
                         aria-hidden="true"

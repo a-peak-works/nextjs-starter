@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode, Ref } from "react";
-import React from "react";
 import type { TextAreaProps as AriaTextAreaProps, TextFieldProps as AriaTextFieldProps } from "react-aria-components";
 import { TextArea as AriaTextArea } from "react-aria-components";
 import HintText from "@/components/shared/input/hint-text";
@@ -19,7 +18,7 @@ export const TextAreaBase = ({ className, ...props }: TextAreaBaseProps) => {
             {...props}
             className={(state) =>
                 cx(
-                    "w-full scroll-py-3 rounded-lg bg-primary px-3.5 py-3 tt-md text-primary shadow-xs ring-1 ring-border-primary transition duration-100 ease-linear ring-inset placeholder:text-placeholder autofill:rounded-lg autofill:text-primary focus:outline-hidden",
+                    "w-full scroll-py-3 rounded-lg bg-primary px-3.5 py-3 text-md text-primary shadow-xs ring-1 ring-border-primary transition duration-100 ease-linear ring-inset placeholder:text-placeholder autofill:rounded-lg autofill:text-primary focus:outline-hidden",
 
                     // Resize handle
                     "[&::-webkit-resizer]:bg-[url(/shared/textarea-resize-handle-light-mode.svg)] [&::-webkit-resizer]:bg-contain dark:[&::-webkit-resizer]:bg-[url(/shared/textarea-resize-handle-dark-mode.svg)]",
@@ -66,7 +65,14 @@ export const TextArea = ({
 }: TextFieldProps) => {
     return (
         <TextField
-            {...{ ref, isDisabled, isInvalid, isReadOnly, isRequired, className: wrapperClassName }}
+            {...{
+                ref,
+                isDisabled,
+                isInvalid,
+                isReadOnly,
+                isRequired,
+                className: wrapperClassName,
+            }}
             value={value as string}
             defaultValue={defaultValue as string}
         >

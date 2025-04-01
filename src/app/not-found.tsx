@@ -13,23 +13,23 @@ export default function NotFound() {
                 <div className="flex w-full max-w-3xl flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-4 md:gap-6">
                         <div className="flex flex-col gap-3">
-                            <span className="tt-md-semi text-brand-secondary">404 error</span>
-                            <h1 className="td-md-semi text-primary md:td-lg-semi lg:td-xl-semi">We can’t find that page</h1>
+                            <span className="text-md font-semibold text-brand-secondary">404 error</span>
+                            <h1 className="text-display-md font-semibold text-primary md:text-display-lg lg:text-display-xl">We can’t find that page</h1>
                         </div>
-                        <p className="tt-lg text-tertiary md:tt-xl">Sorry, the page you are looking for doesn't exist or has been moved.</p>
+                        <p className="text-lg text-tertiary md:text-xl">Sorry, the page you are looking for doesn't exist or has been moved.</p>
                     </div>
 
                     <div className="flex flex-col-reverse gap-3 sm:flex-row">
-                        <Button onClick={() => router.back()} color="secondary" size="xl" className="lg:hidden" iconLeading={ArrowLeft}>
+                        <Button color="secondary" size="xl" className="lg:hidden" iconLeading={ArrowLeft} onClick={() => router.back()}>
                             Go back
                         </Button>
-                        <Button onClick={() => router.back()} color="secondary" size="2xl" className="hidden lg:flex" iconLeading={ArrowLeft}>
+                        <Button color="secondary" size="2xl" className="hidden lg:flex" iconLeading={ArrowLeft} onClick={() => router.back()}>
                             Go back
                         </Button>
-                        <Button href="/" size="xl" className="lg:hidden">
+                        <Button size="xl" className="lg:hidden" onClick={() => router.back()}>
                             Take me home
                         </Button>
-                        <Button href="/" size="2xl" className="hidden lg:flex">
+                        <Button size="2xl" className="hidden lg:flex" onClick={() => router.back()}>
                             Take me home
                         </Button>
                     </div>

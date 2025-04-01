@@ -50,7 +50,9 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
     const first = inputValue?.split(value?.supportingText)?.[0] || "";
     const last = inputValue?.split(first)[1];
 
-    useHotkeys("meta+k", () => state?.setOpen(true), { enabled: !isDisabled && shortcut });
+    useHotkeys("meta+k", () => state?.setOpen(true), {
+        enabled: !isDisabled && shortcut,
+    });
 
     return (
         <AriaGroup
@@ -71,13 +73,13 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
             <div className="relative flex w-full items-center gap-2">
                 {inputValue && (
                     <span className="absolute top-1/2 z-0 inline-flex w-full -translate-y-1/2 gap-2 truncate" aria-hidden="true">
-                        <p className={cx("tt-md-md text-primary", isDisabled && "text-disabled")}>{first}</p>
-                        {last && <p className={cx("-ml-[3px] tt-md text-tertiary", isDisabled && "text-disabled")}>{last}</p>}
+                        <p className={cx("text-md font-medium text-primary", isDisabled && "text-disabled")}>{first}</p>
+                        {last && <p className={cx("-ml-[3px] text-md text-tertiary", isDisabled && "text-disabled")}>{last}</p>}
                     </span>
                 )}
                 <AriaInput
                     placeholder={placeholder}
-                    className="z-10 w-full appearance-none bg-transparent tt-md text-transparent caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
+                    className="z-10 w-full appearance-none bg-transparent text-md text-transparent caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
                 />
             </div>
 
@@ -91,7 +93,7 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
                 >
                     <span
                         className={cx(
-                            "pointer-events-none rounded px-1 py-px tt-xs-md text-quaternary ring-1 ring-border-secondary select-none ring-inset",
+                            "pointer-events-none rounded px-1 py-px text-xs font-medium text-quaternary ring-1 ring-border-secondary select-none ring-inset",
                             isDisabled && "bg-transparent text-disabled",
                         )}
                         aria-hidden="true"

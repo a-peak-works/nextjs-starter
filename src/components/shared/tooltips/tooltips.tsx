@@ -60,7 +60,17 @@ export const Tooltip = ({
     ...tooltipProps
 }: TooltipProps) => {
     return (
-        <AriaTooltipTrigger {...{ trigger, delay, closeDelay, isDisabled, isOpen, defaultOpen, onOpenChange }}>
+        <AriaTooltipTrigger
+            {...{
+                trigger,
+                delay,
+                closeDelay,
+                isDisabled,
+                isOpen,
+                defaultOpen,
+                onOpenChange,
+            }}
+        >
             {children}
 
             <AriaTooltip
@@ -88,9 +98,9 @@ export const Tooltip = ({
                     </OverlayArrow>
                 )}
                 <div className={cx("z-50 flex max-w-xs flex-col items-start gap-1 rounded-lg bg-primary-solid px-3 shadow-lg", description ? "py-3" : "py-2")}>
-                    <span className="tt-xs-semi text-white">{title}</span>
+                    <span className="text-xs font-semibold text-white">{title}</span>
 
-                    {description && <span className="tt-xs-md text-tooltip-supporting-text">{description}</span>}
+                    {description && <span className="text-xs font-medium text-tooltip-supporting-text">{description}</span>}
                 </div>
             </AriaTooltip>
         </AriaTooltipTrigger>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { cx } from "@/components/utils/cx";
+import { RouteProvider } from "@/providers/router-provider";
 import { Theme } from "@/providers/theme";
 import "@/styles/globals.css";
 
@@ -27,7 +28,9 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cx(inter.variable, "bg-primary antialiased")}>
-                <Theme>{children}</Theme>
+                <RouteProvider>
+                    <Theme>{children}</Theme>
+                </RouteProvider>
             </body>
         </html>
     );

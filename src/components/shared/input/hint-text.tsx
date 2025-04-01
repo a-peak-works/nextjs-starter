@@ -17,7 +17,7 @@ const HintText = ({ isInvalid, className, ...props }: HintTextProps) => {
             {...props}
             slot={isInvalid ? "errorMessage" : "description"}
             className={cx(
-                "tt-sm text-tertiary",
+                "text-sm text-tertiary",
 
                 // Invalid state
                 isInvalid && "text-error-primary",

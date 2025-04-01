@@ -43,10 +43,12 @@ export const RadioGroupPaymentIcon = ({ items, size = "sm", className, ...props 
                                 <span className="shrink-0">{card.logo}</span>
                                 <div>
                                     <div className={cx("flex flex-col", size === "md" ? "gap-0.5" : "")}>
-                                        <Label className={cx("pointer-events-none text-secondary", size === "md" ? "tt-md-md" : "tt-sm-md")}>
+                                        <Label
+                                            className={cx("pointer-events-none text-secondary", size === "md" ? "text-md font-medium" : "text-sm font-medium")}
+                                        >
                                             {card.title}
                                         </Label>
-                                        <Text slot="description" className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>
+                                        <Text slot="description" className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>
                                             {card.description}
                                         </Text>
                                     </div>

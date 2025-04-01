@@ -44,10 +44,12 @@ export const RadioGroupAvatar = ({ items, size = "sm", className, ...props }: Ra
 
                                 <div className={cx("flex flex-col", size === "md" ? "gap-0.5" : "")}>
                                     <Label className={cx("pointer-events-none flex", size === "md" ? "gap-1.5" : "gap-1")}>
-                                        <span className={cx("text-secondary", size === "md" ? "tt-md-md" : "tt-sm-md")}>{person.name}</span>
-                                        <span className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>{person.username}</span>
+                                        <span className={cx("text-secondary", size === "md" ? "text-md font-medium" : "text-sm font-medium")}>
+                                            {person.name}
+                                        </span>
+                                        <span className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>{person.username}</span>
                                     </Label>
-                                    <Text slot="description" className={cx("text-tertiary", size === "md" ? "tt-md" : "tt-sm")}>
+                                    <Text slot="description" className={cx("text-tertiary", size === "md" ? "text-md" : "text-sm")}>
                                         {person.title}
                                     </Text>
                                 </div>

@@ -54,7 +54,7 @@ export const TagList = AriaTagList;
 const styles = {
     sm: {
         root: {
-            base: "px-2 py-[3px] tt-xs-md",
+            base: "px-2 py-[3px] text-xs font-medium",
             withCheckbox: "pl-[5px]",
             withAvatar: "pl-1",
             withDot: "pl-1.5",
@@ -62,11 +62,11 @@ const styles = {
             withClose: "pr-1",
         },
         content: "gap-1",
-        count: "px-1 tt-xs-md",
+        count: "px-1 text-xs font-medium",
     },
     md: {
         root: {
-            base: "px-[9px] py-[2px] tt-sm-md",
+            base: "px-[9px] py-[2px] text-sm font-medium",
             withCheckbox: "pl-1",
             withAvatar: "pl-[5px]",
             withDot: "pl-[7px]",
@@ -74,11 +74,11 @@ const styles = {
             withClose: "pr-1",
         },
         content: "gap-[5px]",
-        count: "px-[5px] tt-xs-md",
+        count: "px-[5px] text-xs font-medium",
     },
     lg: {
         root: {
-            base: "px-2.5 py-[4px] tt-sm-md",
+            base: "px-2.5 py-[4px] text-sm font-medium",
             withCheckbox: "pl-[5px]",
             withAvatar: "pl-[7px]",
             withDot: "pl-[9px]",
@@ -86,7 +86,7 @@ const styles = {
             withClose: "pr-1",
         },
         content: "gap-1.5",
-        count: "px-1.5 tt-sm-md",
+        count: "px-1.5 text-sm font-medium",
     },
 };
 

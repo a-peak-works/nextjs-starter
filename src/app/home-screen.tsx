@@ -1,14 +1,17 @@
 "use client";
 
-import { BookOpen01, Copy01, Cube01, HelpCircle } from "@untitledui/icons";
+import { BookOpen01, Check, Copy01, Cube01, HelpCircle } from "@untitledui/icons";
 import dynamic from "next/dynamic";
 import UntitledLogoMinimal from "@/components/foundations/logo/UntitledLogoMinimal";
 import { Button } from "@/components/shared/buttons/button";
 import ButtonUtility from "@/components/shared/buttons/button-utility";
+import { useClipboard } from "@/hooks/use-clipboard";
 
 const Header = dynamic(() => import("@/components/marketing/header-navigation/components/header").then((mod) => mod.Header));
 
 export const HomeScreen = () => {
+    const clipboard = useClipboard();
+
     return (
         <div className="flex h-dvh flex-col">
             <Header />
@@ -58,7 +61,14 @@ export const HomeScreen = () => {
 
                     <hr className="h-10 w-px bg-border-secondary" />
 
-                    <ButtonUtility color="tertiary" size="sm" icon={Copy01} tooltip="Copy" className="mx-1" />
+                    <ButtonUtility
+                        color="tertiary"
+                        size="sm"
+                        tooltip="Copy"
+                        className="mx-1"
+                        icon={clipboard.copied ? Check : Copy01}
+                        onClick={() => clipboard.copy("npx untitledui@latest add")}
+                    />
                 </div>
 
                 <div className="mt-6 flex items-center gap-3">

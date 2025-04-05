@@ -16,35 +16,28 @@ export const styles = sortCx({
             "disabled:cursor-not-allowed disabled:text-fg-disabled",
             // Icon styles
             "disabled:*:data-icon:text-fg-disabled_subtle",
+            // Same as `icon` but for SSR icons that cannot be passed to the client as functions.
+            "*:data-icon:pointer-events-none *:data-icon:size-5 *:data-icon:shrink-0 *:data-icon:transition-inherit-all",
         ].join(" "),
-        icon: "pointer-events-none shrink-0 transition-inherit-all",
+        icon: "pointer-events-none size-5 shrink-0 transition-inherit-all",
     },
 
     sizes: {
         sm: {
             root: "gap-1 rounded-lg px-3 py-2 text-sm font-semibold before:rounded-[7px] data-icon-only:p-2",
             linkRoot: "gap-1",
-            icon: "size-5",
         },
         md: {
             root: "gap-1 rounded-lg px-3.5 py-2.5 text-sm font-semibold before:rounded-[7px] data-icon-only:p-2.5",
             linkRoot: "gap-1",
-            icon: "size-5",
         },
         lg: {
             root: "gap-1.5 rounded-lg px-4 py-2.5 text-md font-semibold before:rounded-[7px] data-icon-only:p-3",
             linkRoot: "gap-1.5",
-            icon: "size-5",
         },
         xl: {
             root: "gap-1.5 rounded-lg px-4.5 py-3 text-md font-semibold before:rounded-[7px] data-icon-only:p-3.5",
             linkRoot: "gap-1.5",
-            icon: "size-5",
-        },
-        "2xl": {
-            root: "gap-2 rounded-[10px] px-5.5 py-4 text-lg font-semibold before:rounded-[9px] data-icon-only:p-4",
-            linkRoot: "gap-2",
-            icon: "size-6",
         },
     },
 
@@ -240,18 +233,14 @@ export const Button = ({
         >
             {/* Leading icon */}
             {isValidElement(IconLeading) && IconLeading}
-            {isReactComponent(IconLeading) && <IconLeading data-icon="leading" className={cx(styles.common.icon, styles.sizes[size].icon)} />}
+            {isReactComponent(IconLeading) && <IconLeading data-icon="leading" className={styles.common.icon} />}
 
             {loading && (
                 <svg
+                    fill="none"
                     data-icon="loading"
                     viewBox="0 0 20 20"
-                    fill="none"
-                    className={cx(
-                        styles.common.icon,
-                        styles.sizes[size].icon,
-                        !showTextWhileLoading && "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-                    )}
+                    className={cx(styles.common.icon, !showTextWhileLoading && "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2")}
                 >
                     {/* Background circle */}
                     <circle className="stroke-current opacity-30" cx="10" cy="10" r="8" fill="none" strokeWidth="2" />
@@ -277,7 +266,7 @@ export const Button = ({
 
             {/* Trailing icon */}
             {isValidElement(IconTrailing) && IconTrailing}
-            {isReactComponent(IconTrailing) && <IconTrailing data-icon="trailing" className={cx(styles.common.icon, styles.sizes[size].icon)} />}
+            {isReactComponent(IconTrailing) && <IconTrailing data-icon="trailing" className={styles.common.icon} />}
         </Component>
     );
 };

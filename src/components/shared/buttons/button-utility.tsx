@@ -1,16 +1,16 @@
 "use client";
 
 import type { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from "react";
-import { isValidElement } from "react";
+import React, { isValidElement } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import { Button as AriaButton } from "react-aria-components";
 import { cx, sortCx } from "@/components/utils/cx";
 import { isReactComponent } from "@/components/utils/is-react-component";
-import { Tooltip } from "../tooltips/tooltips";
+import { Tooltip } from "../tooltip/tooltip";
 
 export const styles = sortCx({
     common: {
-        root: "group relative inline-flex h-max cursor-pointer items-center justify-center outline-focus-ring transition duration-100 ease-linear focus:outline-2 focus:outline-offset-2 disabled:cursor-not-allowed disabled:text-fg-disabled_subtle",
+        root: "group relative inline-flex h-max cursor-pointer items-center justify-center outline-focus-ring transition duration-100 ease-linear focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:text-fg-disabled_subtle",
         icon: "pointer-events-none shrink-0 text-current transition-inherit-all",
     },
 

@@ -3,7 +3,7 @@
 import { Plus } from "@untitledui/icons";
 import type { ButtonProps } from "react-aria-components";
 import { cx } from "@/components/utils/cx";
-import { Tooltip, TooltipTrigger } from "../../tooltips/tooltips";
+import { Tooltip, TooltipTrigger } from "../../tooltip/tooltip";
 
 const sizes = {
     xs: "size-6",

@@ -43,7 +43,7 @@ interface AvatarProfilePhotoProps extends AvatarProps {
     size: "sm" | "md" | "lg";
 }
 
-const AvatarProfilePhoto = ({
+export const AvatarProfilePhoto = ({
     contrastBorder = true,
     size = "md",
     src,
@@ -101,5 +101,3 @@ const AvatarProfilePhoto = ({
         </div>
     );
 };
-
-export default AvatarProfilePhoto;

@@ -6,7 +6,7 @@ import type { TextFieldProps as AriaTextFieldProps } from "react-aria-components
 import { Input as AriaInput, TextField as AriaTextField, Group } from "react-aria-components";
 import HintText from "@/components/shared/input/hint-text";
 import Label from "@/components/shared/input/label";
-import { Tooltip, TooltipTrigger } from "@/components/shared/tooltips/tooltips";
+import { Tooltip, TooltipTrigger } from "@/components/shared/tooltip/tooltip";
 import { cx, sortCx } from "@/components/utils/cx";
 
 export interface InputBaseProps extends TextFieldProps {

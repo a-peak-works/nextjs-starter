@@ -4,10 +4,10 @@ import { cx, sortCx } from "@/components/utils/cx";
 import { isReactComponent } from "@/components/utils/is-react-component";
 
 const iconsSizes = {
-    sm: "size-4",
-    md: "size-5",
-    lg: "size-6",
-    xl: "size-7",
+    sm: "*:data-icon:size-4",
+    md: "*:data-icon:size-5",
+    lg: "*:data-icon:size-6",
+    xl: "*:data-icon:size-7",
 };
 
 const styles = sortCx({
@@ -31,10 +31,10 @@ const styles = sortCx({
     gradient: {
         base: "rounded-full text-fg-white before:absolute before:inset-0 before:size-full before:rounded-full before:border before:mask-b-from-0% after:absolute after:block after:rounded-full",
         sizes: {
-            sm: "size-8 after:size-6",
-            md: "size-10 after:size-7",
-            lg: "size-12 after:size-8",
-            xl: "size-14 after:size-10",
+            sm: "size-8 after:size-6 *:data-icon:size-4",
+            md: "size-10 after:size-7 *:data-icon:size-4",
+            lg: "size-12 after:size-8 *:data-icon:size-5",
+            xl: "size-14 after:size-10 *:data-icon:size-5",
         },
         colors: {
             brand: "before:border-utility-brand-200 before:bg-utility-brand-50 after:bg-brand-solid",
@@ -128,15 +128,16 @@ interface FeaturedIconProps {
 }
 
 export const FeaturedIcon = (props: FeaturedIconProps) => {
-    const { size = "sm", theme: variant = "light", color = "brand", icon: Icon } = props;
+    const { size = "sm", theme: variant = "light", color = "brand", icon: Icon, ...rest } = props;
 
     return (
         <div
-            {...props}
+            {...rest}
             data-featured-icon
             className={cx(
                 "relative flex shrink-0 items-center justify-center",
 
+                iconsSizes[size],
                 styles[variant].base,
                 styles[variant].sizes[size],
                 styles[variant].colors[color],
@@ -144,7 +145,7 @@ export const FeaturedIcon = (props: FeaturedIconProps) => {
                 props.className,
             )}
         >
-            {isReactComponent(Icon) && <Icon className={cx("z-1", iconsSizes[size])} />}
+            {isReactComponent(Icon) && <Icon data-icon className="z-1" />}
             {isValidElement(Icon) && <div className="z-1">{Icon}</div>}
 
             {props.children}

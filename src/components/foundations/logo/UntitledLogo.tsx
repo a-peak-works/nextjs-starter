@@ -2,9 +2,9 @@
 
 import type { HTMLAttributes } from "react";
 import { cx } from "@/components/utils/cx";
-import UntitledLogoMinimal from "./UntitledLogoMinimal";
+import { UntitledLogoMinimal } from "./UntitledLogoMinimal";
 
-const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
+export const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
     return (
         <svg width="139" height="32" viewBox="0 0 139 32" {...props} className={cx("overflow-visible", props.className)}>
             <foreignObject width="100%" height="100%" x="0" y="0" className="overflow-visible">
@@ -59,5 +59,3 @@ const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
         </svg>
     );
 };
-
-export default UntitledLogo;

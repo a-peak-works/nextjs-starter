@@ -1,15 +1,14 @@
 "use client";
 
 import { type ReactNode, type Ref, createContext, useContext } from "react";
-import type { RadioGroupProps as AriaRadioGroupProps } from "react-aria-components";
-import { type RadioProps as AriaRadioProps, Radio, RadioGroup } from "react-aria-components";
+import { RadioGroup as AriaRadioGroup, type RadioGroupProps as AriaRadioGroupProps, type RadioProps as AriaRadioProps, Radio } from "react-aria-components";
 import { cx } from "@/components/utils/cx";
 
-export interface RadioButtonGroupContextType {
+export interface RadioGroupContextType {
     size?: "sm" | "md";
 }
 
-const RadioButtonGroupContext = createContext<RadioButtonGroupContextType | null>(null);
+const RadioGroupContext = createContext<RadioGroupContextType | null>(null);
 
 export interface RadioButtonBaseProps {
     size?: "sm" | "md";
@@ -52,7 +51,7 @@ interface RadioButtonProps extends AriaRadioProps {
 }
 
 export const RadioButton = ({ label, hint, className, size = "sm", ...ariaRadioProps }: RadioButtonProps) => {
-    const context = useContext(RadioButtonGroupContext);
+    const context = useContext(RadioGroupContext);
 
     size = context?.size ?? size;
 
@@ -96,7 +95,7 @@ export const RadioButton = ({ label, hint, className, size = "sm", ...ariaRadioP
                         <div className={cx("inline-flex flex-col", sizes[size].textWrapper)}>
                             {label && <p className={cx("text-secondary select-none", sizes[size].label)}>{label}</p>}
                             {hint && (
-                                <span className={cx("pointer-events-none text-tertiary", sizes[size].hint)} onClick={(event) => event.stopPropagation()}>
+                                <span className={cx("text-tertiary", sizes[size].hint)} onClick={(event) => event.stopPropagation()}>
                                     {hint}
                                 </span>
                             )}
@@ -107,19 +106,19 @@ export const RadioButton = ({ label, hint, className, size = "sm", ...ariaRadioP
         </Radio>
     );
 };
-RadioButton.displayName = "Checkbox";
+RadioButton.displayName = "RadioButton";
 
-interface RadioButtonGroupProps extends RadioButtonGroupContextType, AriaRadioGroupProps {
+interface RadioGroupProps extends RadioGroupContextType, AriaRadioGroupProps {
     children: ReactNode;
     className?: string;
 }
 
-export const RadioButtonGroup = ({ children, className, size = "sm", ...props }: RadioButtonGroupProps) => {
+export const RadioGroup = ({ children, className, size = "sm", ...props }: RadioGroupProps) => {
     return (
-        <RadioButtonGroupContext.Provider value={{ size }}>
-            <RadioGroup {...props} className={cx("flex flex-col gap-4", className)}>
+        <RadioGroupContext.Provider value={{ size }}>
+            <AriaRadioGroup {...props} className={cx("flex flex-col gap-4", className)}>
                 {children}
-            </RadioGroup>
-        </RadioButtonGroupContext.Provider>
+            </AriaRadioGroup>
+        </RadioGroupContext.Provider>
     );
 };

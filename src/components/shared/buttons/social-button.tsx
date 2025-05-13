@@ -1,6 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import React from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import { Button as AriaButton } from "react-aria-components";
 import { cx, sortCx } from "@/components/utils/cx";
@@ -8,7 +9,7 @@ import { AppleLogo, DribbleLogo, FacebookLogo, FigmaLogo, FigmaLogoOutlined, Goo
 
 export const styles = sortCx({
     common: {
-        root: "group relative inline-flex h-max cursor-pointer items-center justify-center font-semibold whitespace-nowrap outline-focus-ring transition duration-100 ease-linear before:absolute focus:outline-2 focus:outline-offset-2 disabled:cursor-not-allowed disabled:stroke-fg-disabled disabled:text-fg-disabled disabled:*:text-fg-disabled",
+        root: "group relative inline-flex h-max cursor-pointer items-center justify-center font-semibold whitespace-nowrap outline-focus-ring transition duration-100 ease-linear before:absolute focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:stroke-fg-disabled disabled:text-fg-disabled disabled:*:text-fg-disabled",
         icon: "pointer-events-none shrink-0 transition-inherit-all",
     },
 
@@ -67,7 +68,7 @@ interface LinkProps extends CommonProps, DetailedHTMLProps<Omit<AnchorHTMLAttrib
 
 export type SocialButtonProps = ButtonProps | LinkProps;
 
-const SocialButton = ({ size = "lg", theme = "brand", social, className, children, onClick, disabled, ...rest }: SocialButtonProps) => {
+const SocialButton = ({ size = "lg", theme = "brand", social, className, children, disabled, ...rest }: SocialButtonProps) => {
     const Component = "href" in rest ? "a" : AriaButton;
 
     const isIconOnly = !children;
@@ -101,11 +102,6 @@ const SocialButton = ({ size = "lg", theme = "brand", social, className, childre
             // Remove `any` type assertion after splitting
             // Component into Link and Button.
             {...(rest as any)}
-            onPress={(event) => {
-                // @ts-expect-error FIX ME
-                rest.onPress?.(event);
-                onClick?.(event as any);
-            }}
             data-icon-only={isIconOnly ? true : undefined}
             className={cx(styles.common.root, styles.sizes[size].root, colorStyles.root, className)}
         >

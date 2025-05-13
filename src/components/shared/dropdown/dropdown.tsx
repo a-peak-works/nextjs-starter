@@ -48,7 +48,12 @@ const DropdownItem = ({ label, children, addon, icon: Icon, unstyled, ...props }
                         state.isFocusVisible && "outline-2 -outline-offset-2",
                     )}
                 >
-                    {Icon && <Icon className={cx("mr-2 size-4 shrink-0", state.isDisabled ? "text-fg-disabled" : "text-fg-quaternary")} aria-hidden="true" />}
+                    {Icon && (
+                        <Icon
+                            aria-hidden="true"
+                            className={cx("mr-2 size-4 shrink-0 stroke-[2.25px]", state.isDisabled ? "text-fg-disabled" : "text-fg-quaternary")}
+                        />
+                    )}
 
                     <span
                         className={cx(
@@ -100,15 +105,17 @@ const DropdownPopover = (props: DropdownPopoverProps) => {
             {...props}
             className={(state) =>
                 cx(
-                    "w-[248px] rounded-lg bg-primary shadow-lg ring-1 ring-border-secondary_alt will-change-transform",
+                    "w-62 rounded-lg bg-primary shadow-lg ring-1 ring-border-secondary_alt will-change-transform",
                     state.isEntering &&
-                        "duration-150 ease-out animate-in fade-in zoom-in-95 placement-right:origin-left placement-right:slide-in-from-left-0.5 placement-top:origin-bottom placement-top:slide-in-from-bottom-0.5 placement-bottom:origin-top placement-bottom:slide-in-from-top-0.5",
+                        "duration-150 ease-out animate-in fade-in placement-right:origin-left placement-right:slide-in-from-left-0.5 placement-top:origin-bottom placement-top:slide-in-from-bottom-0.5 placement-bottom:origin-top placement-bottom:slide-in-from-top-0.5",
                     state.isExiting &&
-                        "duration-100 ease-in animate-out fade-out zoom-out-95 placement-right:origin-left placement-right:slide-out-to-left-0.5 placement-top:origin-bottom placement-top:slide-out-to-bottom-0.5 placement-bottom:origin-top placement-bottom:slide-out-to-top-0.5",
+                        "duration-100 ease-in animate-out fade-out placement-right:origin-left placement-right:slide-out-to-left-0.5 placement-top:origin-bottom placement-top:slide-out-to-bottom-0.5 placement-bottom:origin-top placement-bottom:slide-out-to-top-0.5",
                     typeof props.className === "function" ? props.className(state) : props.className,
                 )
             }
-        />
+        >
+            {props.children}
+        </Popover>
     );
 };
 
@@ -123,9 +130,9 @@ const DropdownDotsButton = (props: AriaButtonProps & RefAttributes<HTMLButtonEle
             aria-label="Open menu"
             className={(state) =>
                 cx(
-                    "cursor-pointer rounded-md text-fg-quaternary outline-focus-ring transition duration-100 ease-in-out ease-linear",
+                    "cursor-pointer rounded-md text-fg-quaternary outline-focus-ring transition duration-100 ease-linear",
                     (state.isPressed || state.isHovered) && "text-fg-quaternary_hover",
-                    (state.isPressed || state.isFocused) && "outline-2 outline-offset-2",
+                    (state.isPressed || state.isFocusVisible) && "outline-2 outline-offset-2",
                     typeof props.className === "function" ? props.className(state) : props.className,
                 )
             }

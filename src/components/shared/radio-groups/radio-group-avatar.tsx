@@ -22,7 +22,7 @@ interface RadioGroupAvatarProps extends RadioGroupProps {
 
 export const RadioGroupAvatar = ({ items, size = "sm", className, ...props }: RadioGroupAvatarProps) => {
     return (
-        <RadioGroup {...props} className={(states) => cx("flex flex-col gap-3", typeof className === "function" ? className(states) : className)}>
+        <RadioGroup {...props} className={(state) => cx("flex flex-col gap-3", typeof className === "function" ? className(state) : className)}>
             {items.map((person) => (
                 <Radio
                     isDisabled={person.disabled}
@@ -30,10 +30,10 @@ export const RadioGroupAvatar = ({ items, size = "sm", className, ...props }: Ra
                     value={person.id}
                     className={({ isDisabled, isSelected, isFocusVisible }) =>
                         cx(
-                            "relative flex cursor-pointer items-start gap-1 rounded-xl bg-primary p-4 transition duration-100 ring-inset",
+                            "relative flex cursor-pointer items-start gap-1 rounded-xl bg-primary p-4 outline-focus-ring ring-inset",
                             isSelected ? "ring-2 ring-border-brand" : "ring-1 ring-border-secondary",
                             isDisabled && "cursor-not-allowed bg-disabled_subtle ring-border-disabled_subtle",
-                            isFocusVisible && "outline-2 outline-offset-2 outline-focus-ring",
+                            isFocusVisible && "outline-2 outline-offset-2",
                         )
                     }
                 >

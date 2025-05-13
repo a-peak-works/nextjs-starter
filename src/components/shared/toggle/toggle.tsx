@@ -10,12 +10,12 @@ interface ToggleBaseProps {
     slim?: boolean;
     className?: string;
     isHovered?: boolean;
-    isFocused?: boolean;
+    isFocusVisible?: boolean;
     isSelected?: boolean;
     isDisabled?: boolean;
 }
 
-export const ToggleBase = ({ className, isHovered, isDisabled, isFocused, isSelected, slim, size = "sm" }: ToggleBaseProps) => {
+export const ToggleBase = ({ className, isHovered, isDisabled, isFocusVisible, isSelected, slim, size = "sm" }: ToggleBaseProps) => {
     const styles = {
         default: {
             sm: {
@@ -48,7 +48,7 @@ export const ToggleBase = ({ className, isHovered, isDisabled, isFocused, isSele
                 isSelected && "bg-brand-solid",
                 isSelected && isHovered && "bg-brand-solid_hover",
                 isDisabled && "cursor-not-allowed bg-disabled",
-                isFocused && "outline-2 outline-offset-2",
+                isFocusVisible && "outline-2 outline-offset-2",
 
                 slim && "ring-1 ring-border-secondary ring-inset",
                 slim && isSelected && "ring-transparent",
@@ -111,14 +111,14 @@ export const Toggle = ({ label, hint, className, size = "sm", slim, ...ariaSwitc
                 )
             }
         >
-            {({ isSelected, isDisabled, isFocused, isHovered }) => (
+            {({ isSelected, isDisabled, isFocusVisible, isHovered }) => (
                 <>
                     <ToggleBase
                         slim={slim}
                         size={size}
                         isHovered={isHovered}
                         isDisabled={isDisabled}
-                        isFocused={isFocused}
+                        isFocusVisible={isFocusVisible}
                         isSelected={isSelected}
                         className={slim ? "mt-0.5" : ""}
                     />

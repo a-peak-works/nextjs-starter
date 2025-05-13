@@ -6,7 +6,7 @@ const sizes = {
     sm: {
         wh: 8,
         c: 4,
-        r: 3,
+        r: 2.5,
     },
     md: {
         wh: 10,

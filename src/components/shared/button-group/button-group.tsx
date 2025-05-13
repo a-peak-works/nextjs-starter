@@ -10,11 +10,11 @@ export const styles = sortCx({
         root: [
             "group/button-group inline-flex h-max cursor-pointer items-center bg-primary font-semibold whitespace-nowrap text-secondary shadow-skeumorphic ring-1 ring-border-primary outline-brand transition duration-100 ease-linear ring-inset",
             // Hover and focus styles
-            "hover:bg-primary_hover hover:text-secondary_hover focus:z-10 focus:outline-2 focus:outline-offset-2",
+            "hover:bg-primary_hover hover:text-secondary_hover focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-2",
             // Disabled styles
             "disabled:cursor-not-allowed disabled:bg-primary disabled:text-disabled",
             // Selected styles
-            "selected:bg-active selected:disabled:bg-disabled_subtle",
+            "selected:bg-active selected:text-secondary_hover selected:disabled:bg-disabled_subtle",
         ].join(" "),
         icon: "pointer-events-none text-fg-quaternary transition-[inherit] group-hover/button-group:text-fg-quaternary_hover group-disabled/button-group:text-fg-disabled_subtle",
     },
@@ -25,7 +25,7 @@ export const styles = sortCx({
             icon: "size-5",
         },
         md: {
-            root: "gap-2 px-4 py-2.5 text-sm not-last:pr-[calc(calc(var(--spacing)*4)+1px)] first:rounded-l-lg last:rounded-r-lg data-icon-leading:pl-3.5 data-icon-only:px-3",
+            root: "gap-1.5 px-4 py-2.5 text-sm not-last:pr-[calc(calc(var(--spacing)*4)+1px)] first:rounded-l-lg last:rounded-r-lg data-icon-leading:pl-3.5 data-icon-only:px-3",
             icon: "size-5",
         },
         lg: {
@@ -89,7 +89,11 @@ interface ButtonGroupProps extends Omit<ToggleButtonGroupProps, "orientation">, 
 export const ButtonGroup = ({ children, size = "md", className, ...otherProps }: ButtonGroupProps) => {
     return (
         <ButtonGroupContext.Provider value={{ size }}>
-            <ToggleButtonGroup className={cx("relative z-0 inline-flex w-max -space-x-px rounded-lg shadow-xs", className)} {...otherProps}>
+            <ToggleButtonGroup
+                selectionMode="single"
+                className={cx("relative z-0 inline-flex w-max -space-x-px rounded-lg shadow-xs", className)}
+                {...otherProps}
+            >
                 {children}
             </ToggleButtonGroup>
         </ButtonGroupContext.Provider>

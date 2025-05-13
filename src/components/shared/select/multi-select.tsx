@@ -5,15 +5,7 @@ import { createContext, useCallback, useContext, useRef, useState } from "react"
 import { SearchLg } from "@untitledui/icons";
 import { FocusScope, useFilter, useFocusManager } from "react-aria";
 import type { ComboBoxProps as AriaComboBoxProps, ListBoxProps as AriaListBoxProps, Key } from "react-aria-components";
-import {
-    Button as AriaButton,
-    ComboBox as AriaComboBox,
-    Group as AriaGroup,
-    Input as AriaInput,
-    ListBox as AriaListBox,
-    ComboBoxStateContext,
-} from "react-aria-components";
-import { useHotkeys } from "react-hotkeys-hook";
+import { Button as AriaButton, ComboBox as AriaComboBox, Group as AriaGroup, Input as AriaInput, ListBox as AriaListBox } from "react-aria-components";
 import type { ListData } from "react-stately";
 import { useListData } from "react-stately";
 import { cx } from "@/components/utils/cx";
@@ -60,7 +52,7 @@ interface CommonProps {
     placeholder?: string;
 }
 
-interface ComboBoxProps extends Omit<AriaComboBoxProps<SelectItemType>, "children" | "items">, RefAttributes<HTMLDivElement>, CommonProps {
+interface MultiSelectProps extends Omit<AriaComboBoxProps<SelectItemType>, "children" | "items">, RefAttributes<HTMLDivElement>, CommonProps {
     shortcut?: boolean;
     items?: SelectItemType[];
     popoverClassName?: string;
@@ -72,7 +64,7 @@ interface ComboBoxProps extends Omit<AriaComboBoxProps<SelectItemType>, "childre
     onItemInserted?: (key: Key) => void;
 }
 
-export const ComboBox = ({
+export const MultiSelectBase = ({
     name,
     items,
     children,
@@ -84,7 +76,7 @@ export const ComboBox = ({
     shortcut,
     placeholder = "Search",
     ...props
-}: ComboBoxProps) => {
+}: MultiSelectProps) => {
     const { contains } = useFilter({ sensitivity: "base" });
     const selectedKeys = selectedItems.items.map((i) => i?.id);
 
@@ -197,7 +189,7 @@ export const ComboBox = ({
                             </Label>
                         )}
 
-                        <ComboBoxTagsValue
+                        <MultiSelectTagsValue
                             size={size}
                             shortcut={shortcut}
                             ref={placeholderRef}
@@ -224,7 +216,7 @@ export const ComboBox = ({
     );
 };
 
-const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }: ComboBoxValueProps) => {
+const InnerMultiSelect = ({ isDisabled, shortcut, shortcutClassName, placeholder }: MultiSelectProps) => {
     const focusManager = useFocusManager();
     const selectContext = useContext(ComboboxContext);
 
@@ -300,7 +292,7 @@ const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }:
                 <AriaInput
                     placeholder={placeholder}
                     onKeyDown={handleInputKeyDown}
-                    className="w-full flex-[1_0_0] appearance-none bg-transparent text-md text-ellipsis text-primary caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
+                    className="w-full flex-[1_0_0] appearance-none bg-transparent text-md text-ellipsis text-primary caret-alpha-black/90 outline-none placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
                 />
 
                 {shortcut && (
@@ -326,7 +318,7 @@ const InnerComboBox = ({ isDisabled, shortcut, shortcutClassName, placeholder }:
     );
 };
 
-export const ComboBoxTagsValue = ({
+export const MultiSelectTagsValue = ({
     size,
     isDisabled,
     shortcut,
@@ -335,18 +327,12 @@ export const ComboBoxTagsValue = ({
     placeholderIcon: Icon = SearchLg,
     ...otherProps
 }: ComboBoxValueProps) => {
-    const state = useContext(ComboBoxStateContext);
-
-    useHotkeys("meta+k", () => state?.setOpen(true), {
-        enabled: !isDisabled && shortcut,
-    });
-
     return (
         <AriaGroup
             {...otherProps}
             className={({ isFocusWithin, isDisabled }) =>
                 cx(
-                    "relative flex w-full items-center gap-2 rounded-lg bg-primary shadow-xs ring-1 ring-border-primary outline-hidden transition duration-200 ease-in-out ring-inset",
+                    "relative flex w-full items-center gap-2 rounded-lg bg-primary shadow-xs ring-1 ring-border-primary outline-hidden transition duration-100 ease-linear ring-inset",
                     isDisabled && "cursor-not-allowed bg-disabled_subtle",
                     isFocusWithin && "ring-2 ring-border-brand",
                     sizes[size].root,
@@ -360,13 +346,13 @@ export const ComboBoxTagsValue = ({
             )}
 
             <FocusScope contain={false} autoFocus={false} restoreFocus={false}>
-                <InnerComboBox size={size} isDisabled={isDisabled} shortcut={shortcut} shortcutClassName={shortcutClassName} placeholder={placeholder} />
+                <InnerMultiSelect size={size} isDisabled={isDisabled} shortcut={shortcut} shortcutClassName={shortcutClassName} placeholder={placeholder} />
             </FocusScope>
         </AriaGroup>
     );
 };
 
-const MultiSelect = ComboBox as typeof ComboBox & {
+const MultiSelect = MultiSelectBase as typeof MultiSelectBase & {
     Item: typeof SelectItem;
 };
 

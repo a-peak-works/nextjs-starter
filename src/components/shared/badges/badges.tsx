@@ -171,26 +171,15 @@ export const BadgeWithDot = <T extends BadgeTypes>(props: BadgeWithDotProps<T>) 
     const colors = withBadgeTypes[type];
 
     const pillSizes = {
-        sm: {
-            root: "gap-1 py-0.5 pl-1.5 pr-2 text-xs font-medium",
-        },
-        md: {
-            root: "gap-1.5 py-0.5 pl-2 pr-2.5 text-sm font-medium",
-        },
-        lg: {
-            root: "gap-1.5 py-1 pl-2.5 pr-3 text-sm font-medium",
-        },
+        sm: "gap-1 py-0.5 pl-1.5 pr-2 text-xs font-medium",
+        md: "gap-1.5 py-0.5 pl-2 pr-2.5 text-sm font-medium",
+        lg: "gap-1.5 py-1 pl-2.5 pr-3 text-sm font-medium",
     };
+
     const badgeSizes = {
-        sm: {
-            root: "gap-1 py-0.5 px-1.5 text-xs font-medium",
-        },
-        md: {
-            root: "gap-1.5 py-0.5 px-2 text-sm font-medium",
-        },
-        lg: {
-            root: "gap-1.5 py-1 px-2.5 text-sm font-medium rounded-lg",
-        },
+        sm: "gap-1 py-0.5 px-1.5 text-xs font-medium",
+        md: "gap-1.5 py-0.5 px-2 text-sm font-medium",
+        lg: "gap-1.5 py-1 px-2.5 text-sm font-medium rounded-lg",
     };
 
     const sizes = {
@@ -200,7 +189,7 @@ export const BadgeWithDot = <T extends BadgeTypes>(props: BadgeWithDotProps<T>) 
     };
 
     return (
-        <span className={cx(colors.common, sizes[type][size].root, colors.styles[color].root, className)}>
+        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root, className)}>
             <Dot className={colors.styles[color].addon} size="sm" />
             {children}
         </span>
@@ -261,9 +250,9 @@ export const BadgeWithIcon = <T extends BadgeTypes>(props: BadgeWithIconProps<T>
 
     return (
         <span className={cx(colors.common, sizes[type][size][icon], colors.styles[color].root, className)}>
-            {IconLeading && <IconLeading className={cx(colors.styles[color].addon, "size-3")} strokeWidth={3} />}
+            {IconLeading && <IconLeading className={cx(colors.styles[color].addon, "size-3 stroke-3")} />}
             {children}
-            {IconTrailing && <IconTrailing className={cx(colors.styles[color].addon, "size-3")} strokeWidth={3} />}
+            {IconTrailing && <IconTrailing className={cx(colors.styles[color].addon, "size-3 stroke-3")} />}
         </span>
     );
 };
@@ -373,12 +362,19 @@ interface BadgeWithButtonProps<T extends BadgeTypes> {
     size?: Sizes;
     icon?: IconComponentType;
     color?: BadgeTypeToColorMap<typeof withPillTypes>[T];
-    onButtonClick?: MouseEventHandler<HTMLButtonElement>;
     children: ReactNode;
+    /**
+     * The label for the button.
+     */
+    buttonLabel?: string;
+    /**
+     * The click event handler for the button.
+     */
+    onButtonClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const BadgeWithButton = <T extends BadgeTypes>(props: BadgeWithButtonProps<T>) => {
-    const { size = "md", color = "gray", type = "pill-color", icon: Icon = CloseX, children } = props;
+    const { size = "md", color = "gray", type = "pill-color", icon: Icon = CloseX, buttonLabel, children } = props;
 
     const colors = withPillTypes[type];
 
@@ -416,12 +412,13 @@ export const BadgeWithButton = <T extends BadgeTypes>(props: BadgeWithButtonProp
             {children}
             <button
                 type="button"
+                aria-label={buttonLabel}
+                onClick={props.onButtonClick}
                 className={cx(
-                    "flex cursor-pointer items-center justify-center p-0.5 outline-focus-ring transition duration-100 ease-linear focus:outline-2",
+                    "flex cursor-pointer items-center justify-center p-0.5 outline-focus-ring transition duration-100 ease-linear focus-visible:outline-2",
                     colors.styles[color].addonButton,
                     type === "pill-color" ? "rounded-full" : "rounded-[3px]",
                 )}
-                onClick={props.onButtonClick}
             >
                 <Icon className="size-3 stroke-[3px] transition-inherit-all" />
             </button>
@@ -443,26 +440,15 @@ export const BadgeIcon = <T extends BadgeTypes>(props: BadgeIconProps<T>) => {
     const colors = withPillTypes[type];
 
     const pillSizes = {
-        sm: {
-            root: "p-[5px]",
-        },
-        md: {
-            root: "p-1.5",
-        },
-        lg: {
-            root: "p-2",
-        },
+        sm: "p-[5px]",
+        md: "p-1.5",
+        lg: "p-2",
     };
+
     const badgeSizes = {
-        sm: {
-            root: "p-[5px]",
-        },
-        md: {
-            root: "p-1.5",
-        },
-        lg: {
-            root: "p-2 rounded-lg",
-        },
+        sm: "p-[5px]",
+        md: "p-1.5",
+        lg: "p-2 rounded-lg",
     };
 
     const sizes = {
@@ -472,7 +458,7 @@ export const BadgeIcon = <T extends BadgeTypes>(props: BadgeIconProps<T>) => {
     };
 
     return (
-        <span className={cx(colors.common, sizes[type][size].root, colors.styles[color].root)}>
+        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root)}>
             <Icon className={cx("size-3 stroke-[3px]", colors.styles[color].addon)} />
         </span>
     );

@@ -31,7 +31,6 @@ interface FileTriggerProps {
     acceptDirectory?: boolean;
 }
 
-// TODO: Make it possible to pass down a ref to the input element.
 /**
  * A FileTrigger allows a user to access the file system with any pressable React Aria or React Spectrum component, or custom components built with usePress.
  */

@@ -10,7 +10,7 @@ export const GooglePlayButton = ({ size = "md", ...props }: AnchorHTMLAttributes
             href="#"
             {...props}
             className={cx(
-                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
+                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2",
                 props.className,
             )}
         >
@@ -160,7 +160,7 @@ export const GooglePlayWhiteButton = ({ size = "md", ...props }: AnchorHTMLAttri
             href="#"
             {...props}
             className={cx(
-                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
+                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2",
                 props.className,
             )}
         >
@@ -236,7 +236,7 @@ export const AppStoreButton = ({ size = "md", ...props }: AnchorHTMLAttributes<H
             href="#"
             {...props}
             className={cx(
-                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
+                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2",
                 props.className,
             )}
         >
@@ -342,7 +342,7 @@ export const GalaxyStoreButton = ({ size = "md", ...props }: AnchorHTMLAttribute
             href="#"
             {...props}
             className={cx(
-                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
+                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2",
                 props.className,
             )}
         >
@@ -467,7 +467,7 @@ export const AppGalleryButton = ({ size = "md", ...props }: AnchorHTMLAttributes
             href="#"
             {...props}
             className={cx(
-                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
+                "rounded-[7px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2",
                 props.className,
             )}
         >
@@ -561,245 +561,6 @@ export const AppGalleryButton = ({ size = "md", ...props }: AnchorHTMLAttributes
                     d="M21.4023 15.7851C19.0773 15.7851 17.1855 13.8933 17.1855 11.5683H17.7813C17.7813 13.5649 19.4055 15.1894 21.4023 15.1894C23.3991 15.1894 25.0234 13.5649 25.0234 11.5683H25.6191C25.6191 13.8933 23.7274 15.7851 21.4023 15.7851"
                     fill="white"
                 />
-            </svg>
-        </a>
-    );
-};
-
-export const FDroidButton = ({ size = "md", ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { size?: "md" | "lg" }) => {
-    return (
-        <a
-            aria-label="Get it on F-Droid"
-            href="#"
-            {...props}
-            className={cx(
-                "rounded-[5px] bg-black ring-1 ring-app-store-badge-border outline-focus-ring ring-inset focus:outline-2 focus:outline-offset-2",
-                props.className,
-            )}
-        >
-            <svg width={size === "md" ? 112 : 123} height={size === "md" ? 40 : 44} viewBox="0 0 124 44" fill="none">
-                <path
-                    d="M46.8047 34.1V32.6889L48.2616 32.414V22.4537L46.8047 22.1788V20.7586H57.1865V24.2222H55.3813L55.2347 22.5454H50.5707V26.6138H55.3355V28.4006H50.5707V32.414L52.0276 32.6889V34.1H46.8047Z"
-                    fill="white"
-                />
-                <path d="M59.0557 29.3169V27.5301H63.9305V29.3169H59.0557Z" fill="white" />
-                <path
-                    d="M65.7723 34.1V32.6889L67.2384 32.4048V22.4721L65.7723 22.1788V20.7586H71.3618C72.5469 20.7586 73.5884 21.0396 74.4864 21.6016C75.3844 22.1636 76.0838 22.9363 76.5847 23.9198C77.0856 24.9033 77.3361 26.0304 77.3361 27.301V27.5667C77.3361 28.819 77.0887 29.94 76.5939 30.9296C76.1052 31.9131 75.4179 32.6889 74.5322 33.257C73.6464 33.819 72.611 34.1 71.4259 34.1H65.7723ZM69.5475 32.3224H71.3068C72.0887 32.3224 72.7545 32.1147 73.3043 31.6993C73.8602 31.2778 74.2848 30.7097 74.578 29.995C74.8712 29.2741 75.0178 28.4647 75.0178 27.5667V27.2918C75.0178 26.3755 74.8712 25.56 74.578 24.8453C74.2848 24.1306 73.8602 23.5686 73.3043 23.1593C72.7545 22.75 72.0887 22.5454 71.3068 22.5454H69.5475V32.3224Z"
-                    fill="white"
-                />
-                <path
-                    d="M78.7106 34.1V32.6889L80.0759 32.414V25.8807L78.6281 25.6058V24.1856H82.2017L82.3208 25.4317L82.3391 25.6333C82.8706 24.546 83.6403 24.0023 84.6482 24.0023C85.027 24.0023 85.366 24.0512 85.6653 24.1489L85.3996 26.2839L84.1076 26.2106C83.6861 26.1862 83.3379 26.2686 83.063 26.458C82.7881 26.6474 82.5621 26.9101 82.3849 27.246V32.414L83.7594 32.6889V34.1H78.7106Z"
-                    fill="white"
-                />
-                <path
-                    d="M91.0441 34.2924C90.0911 34.2924 89.2725 34.0786 88.5884 33.651C87.9042 33.2173 87.3788 32.6217 87.0123 31.8642C86.6458 31.1067 86.4625 30.2332 86.4625 29.2436V29.0512C86.4625 28.0677 86.6458 27.1972 87.0123 26.4397C87.3788 25.6822 87.9042 25.0866 88.5884 24.6529C89.2725 24.2192 90.085 24.0023 91.0257 24.0023C91.9787 24.0023 92.7973 24.2192 93.4814 24.6529C94.1656 25.0805 94.691 25.6761 95.0575 26.4397C95.424 27.1972 95.6073 28.0677 95.6073 29.0512V29.2436C95.6073 30.2393 95.424 31.1159 95.0575 31.8734C94.691 32.6309 94.1656 33.2234 93.4814 33.651C92.8034 34.0786 91.9909 34.2924 91.0441 34.2924ZM91.0441 32.5148C91.8077 32.5148 92.3758 32.2124 92.7484 31.6077C93.121 30.9968 93.3073 30.2088 93.3073 29.2436V29.0512C93.3073 28.1043 93.118 27.3254 92.7392 26.7146C92.3666 26.0976 91.7954 25.7891 91.0257 25.7891C90.2621 25.7891 89.694 26.0976 89.3214 26.7146C88.9549 27.3254 88.7716 28.1043 88.7716 29.0512V29.2436C88.7716 30.2088 88.9549 30.9968 89.3214 31.6077C89.694 32.2124 90.2683 32.5148 91.0441 32.5148Z"
-                    fill="white"
-                />
-                <path
-                    d="M96.8168 34.1V32.6889L98.1913 32.414V25.8807L96.7343 25.6058V24.1856H100.5V32.414L101.866 32.6889V34.1H96.8168ZM98.0996 21.9406V19.8056H100.5V21.9406H98.0996Z"
-                    fill="white"
-                />
-                <path
-                    d="M106.768 34.2924C105.968 34.2924 105.284 34.0909 104.715 33.6877C104.147 33.2845 103.711 32.7225 103.405 32.0017C103.106 31.2747 102.956 30.4287 102.956 29.4635V29.2711C102.956 28.2204 103.106 27.301 103.405 26.513C103.711 25.7188 104.147 25.1019 104.715 24.662C105.284 24.2222 105.965 24.0023 106.759 24.0023C107.327 24.0023 107.822 24.1123 108.243 24.3322C108.671 24.546 109.037 24.8545 109.343 25.2576V21.5008L107.886 21.2259V19.8056H111.652V32.414L113.026 32.6889V34.1H109.654L109.471 32.8997C108.83 33.8282 107.929 34.2924 106.768 34.2924ZM107.418 32.469C107.858 32.469 108.237 32.3713 108.555 32.1758C108.872 31.9803 109.135 31.7023 109.343 31.3419V26.9711C109.141 26.6107 108.878 26.3297 108.555 26.1281C108.237 25.9265 107.864 25.8258 107.437 25.8258C106.685 25.8258 106.136 26.1434 105.787 26.7787C105.439 27.414 105.265 28.2448 105.265 29.2711V29.4635C105.265 30.3798 105.433 31.1098 105.769 31.6535C106.111 32.1972 106.661 32.469 107.418 32.469Z"
-                    fill="white"
-                />
-                <path
-                    d="M51.9301 14.5432C51.6914 14.8545 51.3604 15.0902 50.9373 15.2504C50.5142 15.4106 50.0337 15.4907 49.4958 15.4907C48.9427 15.4907 48.4531 15.3652 48.027 15.1144C47.6009 14.8636 47.2715 14.5054 47.0388 14.04C46.8091 13.5716 46.6897 13.0261 46.6807 12.4035V11.8868C46.6807 10.8895 46.9194 10.1113 47.3969 9.55216C47.8744 8.99004 48.5408 8.70898 49.3961 8.70898C50.1304 8.70898 50.7137 8.89031 51.1459 9.25297C51.578 9.61563 51.8379 10.1385 51.9256 10.8215H50.8013C50.6744 10.0266 50.2135 9.62922 49.4187 9.62922C48.905 9.62922 48.5136 9.81509 48.2446 10.1868C47.9787 10.5555 47.8412 11.098 47.8321 11.8142V12.3219C47.8321 13.0352 47.9817 13.5897 48.2809 13.9856C48.5831 14.3785 49.0017 14.5749 49.5366 14.5749C50.1229 14.5749 50.5399 14.442 50.7877 14.176V12.8841H49.4278V12.0137H51.9301V14.5432Z"
-                    fill="white"
-                />
-                <path d="M57.1409 12.4534H54.4301V14.4843H57.5988V15.4H53.2832V8.79965H57.5671V9.72442H54.4301V11.5468H57.1409V12.4534Z" fill="white" />
-                <path d="M63.4851 9.72442H61.427V15.4H60.2892V9.72442H58.2492V8.79965H63.4851V9.72442Z" fill="white" />
-                <path d="M67.7914 15.4H66.6491V8.79965H67.7914V15.4Z" fill="white" />
-                <path d="M73.927 9.72442H71.869V15.4H70.7311V9.72442H68.6912V8.79965H73.927V9.72442Z" fill="white" />
-                <path
-                    d="M82.2906 12.2721C82.2906 12.9188 82.1788 13.487 81.9552 13.9766C81.7315 14.4631 81.4112 14.8379 80.9941 15.1008C80.5801 15.3607 80.1026 15.4907 79.5616 15.4907C79.0267 15.4907 78.5492 15.3607 78.1291 15.1008C77.7121 14.8379 77.3887 14.4646 77.159 13.9811C76.9324 13.4976 76.8175 12.94 76.8145 12.3083V11.9366C76.8145 11.2929 76.9278 10.7247 77.1545 10.2321C77.3842 9.73953 77.706 9.36328 78.1201 9.10337C78.5371 8.84045 79.0146 8.70898 79.5526 8.70898C80.0905 8.70898 80.5665 8.83894 80.9805 9.09884C81.3976 9.35572 81.7194 9.72744 81.9461 10.214C82.1727 10.6975 82.2876 11.2612 82.2906 11.9049V12.2721ZM81.1437 11.9276C81.1437 11.1962 81.0047 10.6356 80.7267 10.2457C80.4516 9.85588 80.0603 9.66096 79.5526 9.66096C79.0569 9.66096 78.6686 9.85588 78.3875 10.2457C78.1095 10.6326 77.9674 11.1811 77.9614 11.8913V12.2721C77.9614 12.9974 78.1019 13.558 78.383 13.9539C78.6671 14.3498 79.0599 14.5478 79.5616 14.5478C80.0693 14.5478 80.4592 14.3543 80.7312 13.9675C81.0062 13.5807 81.1437 13.0155 81.1437 12.2721V11.9276Z"
-                    fill="white"
-                />
-                <path d="M88.7617 15.4H87.6148L84.6727 10.7172V15.4H83.5258V8.79965H84.6727L87.6238 13.5006V8.79965H88.7617V15.4Z" fill="white" />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M34.3535 10.7502C34.6757 11.0724 35.1981 11.0724 35.5202 10.7502L39.0204 7.25007C39.3426 6.92788 39.3426 6.40552 39.0204 6.08334L34.3535 10.7502Z"
-                    fill="#8AB000"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M34.3535 10.7502C34.6757 11.0724 35.1981 11.0724 35.5202 10.7502L39.0204 7.25007C39.3426 6.92788 39.3426 6.40552 39.0204 6.08334L34.3535 10.7502Z"
-                    fill="#263238"
-                    fillOpacity="0.2"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M34.3534 10.7503C34.0312 10.4281 34.0312 9.90575 34.3534 9.58357L37.8536 6.08339C38.1757 5.76121 38.6981 5.76121 39.0203 6.08339L34.3534 10.7503Z"
-                    fill="#8AB000"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M34.3534 10.7503C34.0312 10.4281 34.0312 9.90575 34.3534 9.58357L37.8536 6.08339C38.1757 5.76121 38.6981 5.76121 39.0203 6.08339L34.3534 10.7503Z"
-                    fill="white"
-                    fillOpacity="0.3"
-                />
-                <path
-                    d="M34.3534 10.7503C34.1601 10.557 34.2646 10.1391 34.5868 9.81691L38.087 6.31673C38.4091 5.99455 38.827 5.89007 39.0203 6.08338C39.2136 6.27669 39.1092 6.69458 38.787 7.01676L35.2868 10.5169C34.9646 10.8391 34.5467 10.9436 34.3534 10.7503Z"
-                    fill="#8AB000"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8.28369 6.08337C7.96151 6.40556 7.96151 6.92792 8.28369 7.2501L11.7839 10.7503C12.1061 11.0725 12.6284 11.0725 12.9506 10.7503L8.28369 6.08337Z"
-                    fill="#8AB000"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8.28369 6.08337C7.96151 6.40556 7.96151 6.92792 8.28369 7.2501L11.7839 10.7503C12.1061 11.0725 12.6284 11.0725 12.9506 10.7503L8.28369 6.08337Z"
-                    fill="#263238"
-                    fillOpacity="0.2"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8.28334 6.08336C8.60552 5.76118 9.12788 5.76118 9.45006 6.08336L12.9502 9.58354C13.2724 9.90572 13.2724 10.4281 12.9502 10.7503L8.28334 6.08336Z"
-                    fill="#8AB000"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8.28334 6.08336C8.60552 5.76118 9.12788 5.76118 9.45006 6.08336L12.9502 9.58354C13.2724 9.90572 13.2724 10.4281 12.9502 10.7503L8.28334 6.08336Z"
-                    fill="white"
-                    fillOpacity="0.3"
-                />
-                <path
-                    d="M8.28377 6.08336C8.47708 5.89005 8.89497 5.99452 9.21715 6.3167L12.7173 9.81688C13.0395 10.1391 13.144 10.557 12.9507 10.7503C12.7574 10.9436 12.3395 10.8391 12.0173 10.5169L8.51712 7.01674C8.19493 6.69455 8.09046 6.27666 8.28377 6.08336Z"
-                    fill="#8AB000"
-                />
-                <g filter="url(#filter0_ii_1303_2214)">
-                    <path
-                        d="M11 11C11 9.78496 11.985 8.79999 13.2 8.79999H34.1C35.315 8.79999 36.3 9.78496 36.3 11V15.4C36.3 16.615 35.315 17.6 34.1 17.6H13.2C11.985 17.6 11 16.615 11 15.4V11Z"
-                        fill="#AEEA00"
-                    />
-                </g>
-                <g filter="url(#filter1_ii_1303_2214)">
-                    <path
-                        d="M11 20.9C11 19.685 11.985 18.7 13.2 18.7H34.1C35.315 18.7 36.3 19.685 36.3 20.9V34.1C36.3 35.315 35.315 36.3 34.1 36.3H13.2C11.985 36.3 11 35.315 11 34.1V20.9Z"
-                        fill="#1976D2"
-                    />
-                </g>
-                <path
-                    d="M23.6518 31.35C25.7781 31.35 27.5018 29.6263 27.5018 27.5C27.5018 25.3737 25.7781 23.65 23.6518 23.65C21.9077 23.65 20.4345 24.8097 19.9612 26.4H21.7461C22.1265 25.7425 22.8374 25.3 23.6518 25.3C24.8668 25.3 25.8518 26.285 25.8518 27.5C25.8518 28.715 24.8668 29.7 23.6518 29.7C22.8374 29.7 22.1265 29.2576 21.7461 28.6H19.9612C20.4345 30.1903 21.9077 31.35 23.6518 31.35Z"
-                    fill="#0D47A1"
-                />
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M30.2518 27.5C30.2518 31.1451 27.2968 34.1 23.6518 34.1C20.0067 34.1 17.0518 31.1451 17.0518 27.5C17.0518 23.8549 20.0067 20.9 23.6518 20.9C27.2968 20.9 30.2518 23.8549 30.2518 27.5ZM29.1518 27.5C29.1518 30.5376 26.6893 33 23.6518 33C20.6142 33 18.1518 30.5376 18.1518 27.5C18.1518 24.4625 20.6142 22 23.6518 22C26.6893 22 29.1518 24.4625 29.1518 27.5Z"
-                    fill="#0D47A1"
-                />
-                <g filter="url(#filter2_d_1303_2214)">
-                    <path
-                        d="M17.0501 15.4C18.2651 15.4 19.2501 14.415 19.2501 13.2C19.2501 11.985 18.2651 11 17.0501 11C15.8351 11 14.8501 11.985 14.8501 13.2C14.8501 14.415 15.8351 15.4 17.0501 15.4Z"
-                        fill="white"
-                    />
-                    <path
-                        d="M30.2501 15.4C31.4651 15.4 32.4501 14.415 32.4501 13.2C32.4501 11.985 31.4651 11 30.2501 11C29.0351 11 28.0501 11.985 28.0501 13.2C28.0501 14.415 29.0351 15.4 30.2501 15.4Z"
-                        fill="white"
-                    />
-                </g>
-                <path
-                    d="M8.28363 6.08337C8.60581 5.76119 9.12817 5.76119 9.45035 6.08337L12.3411 8.9741C12.605 8.86201 12.8954 8.80001 13.2003 8.80001H34.1003C34.4061 8.80001 34.6974 8.86241 34.962 8.97519L37.8538 6.08338C38.176 5.7612 38.6983 5.7612 39.0205 6.08338C39.3427 6.40556 39.3427 6.92792 39.0205 7.2501L36.1273 10.1434C36.2387 10.4067 36.3003 10.6961 36.3003 11V15.4C36.3003 16.615 35.3153 17.6 34.1003 17.6H13.2003C11.9852 17.6 11.0003 16.615 11.0003 15.4V11C11.0003 10.6952 11.0623 10.4048 11.1744 10.1408L8.28363 7.2501C7.96145 6.92792 7.96145 6.40556 8.28363 6.08337Z"
-                    fill="url(#paint0_radial_1303_2214)"
-                />
-                <path
-                    d="M13.2003 18.7C11.9852 18.7 11.0003 19.685 11.0003 20.9V34.1C11.0003 35.315 11.9852 36.3 13.2003 36.3H34.1003C35.3153 36.3 36.3003 35.315 36.3003 34.1V20.9C36.3003 19.685 35.3153 18.7 34.1003 18.7H13.2003Z"
-                    fill="url(#paint1_radial_1303_2214)"
-                />
-                <defs>
-                    <filter
-                        id="filter0_ii_1303_2214"
-                        x="11"
-                        y="8.79999"
-                        width="25.2998"
-                        height="8.79999"
-                        filterUnits="userSpaceOnUse"
-                        colorInterpolationFilters="sRGB"
-                    >
-                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                        <feOffset dy="-1" />
-                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.196078 0 0 0 0 0.219608 0 0 0 0.2 0" />
-                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1303_2214" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                        <feOffset dy="1" />
-                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 0" />
-                        <feBlend mode="normal" in2="effect1_innerShadow_1303_2214" result="effect2_innerShadow_1303_2214" />
-                    </filter>
-                    <filter
-                        id="filter1_ii_1303_2214"
-                        x="11"
-                        y="18.7"
-                        width="25.2998"
-                        height="17.6"
-                        filterUnits="userSpaceOnUse"
-                        colorInterpolationFilters="sRGB"
-                    >
-                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                        <feOffset dy="-1" />
-                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.196078 0 0 0 0 0.219608 0 0 0 0.2 0" />
-                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1303_2214" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                        <feOffset dy="1" />
-                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
-                        <feBlend mode="normal" in2="effect1_innerShadow_1303_2214" result="effect2_innerShadow_1303_2214" />
-                    </filter>
-                    <filter
-                        id="filter2_d_1303_2214"
-                        x="14.8501"
-                        y="10.5"
-                        width="17.6001"
-                        height="4.90002"
-                        filterUnits="userSpaceOnUse"
-                        colorInterpolationFilters="sRGB"
-                    >
-                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                        <feOffset dy="-0.5" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.196078 0 0 0 0 0.219608 0 0 0 0.2 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1303_2214" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1303_2214" result="shape" />
-                    </filter>
-                    <radialGradient
-                        id="paint0_radial_1303_2214"
-                        cx="0"
-                        cy="0"
-                        r="1"
-                        gradientUnits="userSpaceOnUse"
-                        gradientTransform="translate(7.80506 5.60407) rotate(90) scale(30.6959 31.2553)"
-                    >
-                        <stop stopColor="white" stopOpacity="0.1" />
-                        <stop offset="1" stopColor="white" stopOpacity="0" />
-                    </radialGradient>
-                    <radialGradient
-                        id="paint1_radial_1303_2214"
-                        cx="0"
-                        cy="0"
-                        r="1"
-                        gradientUnits="userSpaceOnUse"
-                        gradientTransform="translate(7.80506 5.60407) rotate(90) scale(30.6959 31.2553)"
-                    >
-                        <stop stopColor="white" stopOpacity="0.1" />
-                        <stop offset="1" stopColor="white" stopOpacity="0" />
-                    </radialGradient>
-                </defs>
             </svg>
         </a>
     );

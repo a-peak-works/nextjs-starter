@@ -16,13 +16,13 @@ const styles = {
     lg: { root: "p-[3px]", icon: "size-3.5" },
 };
 
-export const TagCloseX = ({ size = "md", className, isDisabled, ...otherProps }: TagCloseXProps) => {
+export const TagCloseX = ({ size = "md", className, ...otherProps }: TagCloseXProps) => {
     return (
         <AriaButton
             slot="remove"
             aria-label="Remove this tag"
             className={cx(
-                "flex cursor-pointer rounded-[3px] text-fg-quaternary outline-focus-ring transition duration-100 ease-linear hover:bg-primary_hover hover:text-fg-quaternary_hover focus:outline-2 focus:outline-offset-2 disabled:cursor-not-allowed",
+                "flex cursor-pointer rounded-[3px] text-fg-quaternary outline-focus-ring transition duration-100 ease-linear hover:bg-primary_hover hover:text-fg-quaternary_hover focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed",
                 styles[size].root,
                 className,
             )}

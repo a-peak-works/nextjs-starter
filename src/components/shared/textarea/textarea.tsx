@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode, Ref } from "react";
+import React from "react";
 import type { TextAreaProps as AriaTextAreaProps, TextFieldProps as AriaTextFieldProps } from "react-aria-components";
 import { TextArea as AriaTextArea } from "react-aria-components";
 import HintText from "@/components/shared/input/hint-text";
@@ -65,14 +66,7 @@ export const TextArea = ({
 }: TextFieldProps) => {
     return (
         <TextField
-            {...{
-                ref,
-                isDisabled,
-                isInvalid,
-                isReadOnly,
-                isRequired,
-                className: wrapperClassName,
-            }}
+            {...{ ref, isDisabled, isInvalid, isReadOnly, isRequired, className: wrapperClassName }}
             value={value as string}
             defaultValue={defaultValue as string}
         >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useControlledState } from "@react-stately/utils";
 import { TextField } from "react-aria-components";
 import { AmexIcon, DiscoverIcon, MastercardIcon, UnionPayIcon, VisaIcon } from "@/components/foundations/payment-icons";
 import type { InputBaseProps } from "@/components/shared/input";
@@ -82,27 +82,13 @@ export const formatCardNumber = (number: string) => {
 
 interface PaymentInputProps extends Omit<InputBaseProps, "icon"> {}
 
-export const PaymentInput = ({ onChange, className, maxLength = 19, label, hint, ...props }: PaymentInputProps) => {
-    const [cardNumber, setCardNumber] = useState(formatCardNumber(props.value || props.defaultValue || ""));
-
-    const handleCardNumberChange = (value: string) => {
+export const PaymentInput = ({ onChange, value, defaultValue, className, maxLength = 19, label, hint, ...props }: PaymentInputProps) => {
+    const [cardNumber, setCardNumber] = useControlledState(value, defaultValue || "", (value) => {
         // Remove all non-numeric characters
         value = value.replace(/\D/g, "");
 
-        // Return if the value is empty
-        if (!value) {
-            setCardNumber("");
-            onChange?.("");
-            return "";
-        }
-
-        // Format the card number in groups of 4 digits
-        const formatted = formatCardNumber(value);
-
-        setCardNumber(formatted);
-        onChange?.(value);
-        return value;
-    };
+        onChange?.(value || "");
+    });
 
     const card = detectCardType(cardNumber);
 
@@ -110,10 +96,10 @@ export const PaymentInput = ({ onChange, className, maxLength = 19, label, hint,
         <TextField
             aria-label={!label ? props?.placeholder : undefined}
             {...props}
-            value={cardNumber}
             inputMode="numeric"
             maxLength={maxLength}
-            onChange={handleCardNumberChange}
+            value={formatCardNumber(cardNumber)}
+            onChange={setCardNumber}
             className={(state) =>
                 cx("flex h-max w-full flex-col items-start justify-start gap-1.5", typeof className === "function" ? className(state) : className)
             }

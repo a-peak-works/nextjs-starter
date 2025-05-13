@@ -26,7 +26,7 @@ interface RadioGroupIconCardProps extends RadioGroupProps {
 
 export const RadioGroupIconCard = ({ items, size = "sm", className, ...props }: RadioGroupIconCardProps) => {
     return (
-        <RadioGroup {...props} className={(states) => cx("flex flex-col gap-3", typeof className === "function" ? className(states) : className)}>
+        <RadioGroup {...props} className={(state) => cx("flex flex-col gap-3", typeof className === "function" ? className(state) : className)}>
             {items.map((plan) => (
                 <Radio
                     isDisabled={plan.disabled}
@@ -34,11 +34,11 @@ export const RadioGroupIconCard = ({ items, size = "sm", className, ...props }: 
                     value={plan.value}
                     className={({ isDisabled, isSelected, isFocusVisible }) =>
                         cx(
-                            "relative block cursor-pointer rounded-xl bg-primary transition duration-100 ring-inset",
+                            "relative block cursor-pointer rounded-xl bg-primary outline-focus-ring ring-inset",
                             isSelected ? "ring-2 ring-border-brand" : "ring-1 ring-border-secondary",
                             isDisabled && "cursor-not-allowed bg-disabled_subtle ring-border-disabled",
                             isSelected && isDisabled && "ring-border-disabled_subtle",
-                            isFocusVisible && "outline-2 outline-offset-2 outline-focus-ring",
+                            isFocusVisible && "outline-2 outline-offset-2",
                         )
                     }
                 >
@@ -46,7 +46,7 @@ export const RadioGroupIconCard = ({ items, size = "sm", className, ...props }: 
                         <>
                             <div
                                 className={cx(
-                                    "flex items-center gap-3 rounded-t-xl p-3 pr-5 transition-inherit-all ring-inset",
+                                    "flex items-center gap-3 rounded-t-xl p-3 pr-5 ring-inset",
                                     isSelected ? "ring-2 ring-border-brand" : "ring-1 ring-border-secondary",
                                     isDisabled && "ring-border-disabled",
                                     isSelected && isDisabled && "ring-border-disabled_subtle",

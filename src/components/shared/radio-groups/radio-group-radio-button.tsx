@@ -21,7 +21,7 @@ interface RadioGroupRadioButtonProps extends RadioGroupProps {
 
 export const RadioGroupRadioButton = ({ items, size = "sm", className, ...props }: RadioGroupRadioButtonProps) => {
     return (
-        <RadioGroup {...props} className={(states) => cx("flex flex-col gap-3", typeof className === "function" ? className(states) : className)}>
+        <RadioGroup {...props} className={(state) => cx("flex flex-col gap-3", typeof className === "function" ? className(state) : className)}>
             {items.map((plan) => (
                 <Radio
                     isDisabled={plan.disabled}
@@ -29,11 +29,11 @@ export const RadioGroupRadioButton = ({ items, size = "sm", className, ...props 
                     value={plan.value}
                     className={({ isDisabled, isSelected, isFocusVisible }) =>
                         cx(
-                            "relative flex cursor-pointer rounded-xl bg-primary p-4 transition duration-100 ring-inset",
+                            "relative flex cursor-pointer rounded-xl bg-primary p-4 outline-focus-ring ring-inset",
                             size === "md" ? "gap-3" : "gap-2",
                             isSelected ? "ring-2 ring-border-brand" : "ring-1 ring-border-secondary",
                             isDisabled && "cursor-not-allowed bg-disabled_subtle ring-border-disabled_subtle",
-                            isFocusVisible && "outline-2 outline-offset-2 outline-focus-ring",
+                            isFocusVisible && "outline-2 outline-offset-2",
                         )
                     }
                 >
@@ -41,7 +41,7 @@ export const RadioGroupRadioButton = ({ items, size = "sm", className, ...props 
                         <>
                             <div
                                 className={cx(
-                                    "relative mt-0.5 inline-flex shrink-0 items-center justify-center rounded-full transition-inherit-all ring-inset",
+                                    "relative mt-0.5 inline-flex shrink-0 items-center justify-center rounded-full ring-inset",
                                     size === "md" ? "size-5" : "size-4",
                                     isSelected ? "bg-brand-solid" : "ring-1 ring-border-primary",
                                     isDisabled && "bg-disabled_subtle ring-1 ring-border-disabled",
@@ -50,7 +50,7 @@ export const RadioGroupRadioButton = ({ items, size = "sm", className, ...props 
                             >
                                 <div
                                     className={cx(
-                                        "absolute rounded-full bg-fg-white opacity-0 transition-inherit-all",
+                                        "absolute rounded-full bg-fg-white opacity-0",
                                         size === "md" ? "size-2" : "size-1.5",
                                         isSelected ? "opacity-100" : "opacity-0",
                                         isDisabled && "bg-fg-disabled_subtle",

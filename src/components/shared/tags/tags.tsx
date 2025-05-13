@@ -66,7 +66,7 @@ const styles = {
     },
     md: {
         root: {
-            base: "px-[9px] py-[2px] text-sm font-medium",
+            base: "px-[9px] py-0.5 text-sm font-medium",
             withCheckbox: "pl-1",
             withAvatar: "pl-[5px]",
             withDot: "pl-[7px]",
@@ -78,7 +78,7 @@ const styles = {
     },
     lg: {
         root: {
-            base: "px-2.5 py-[4px] text-sm font-medium",
+            base: "px-2.5 py-1 text-sm font-medium",
             withCheckbox: "pl-[5px]",
             withAvatar: "pl-[7px]",
             withDot: "pl-[9px]",

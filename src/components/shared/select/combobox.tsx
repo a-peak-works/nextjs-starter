@@ -12,7 +12,6 @@ import {
     ListBox as AriaListBox,
     ComboBoxStateContext,
 } from "react-aria-components";
-import { useHotkeys } from "react-hotkeys-hook";
 import { cx } from "@/components/utils/cx";
 import { useResizeObserver } from "@/hooks/use-resize-observer";
 import HintText from "../input/hint-text";
@@ -20,11 +19,8 @@ import Label from "../input/label";
 import { Popover } from "./popover";
 import { type CommonProps, SelectContext, type SelectItemType, sizes } from "./select";
 
-type ComboBoxTypes = "search" | "tags";
-
 interface ComboBoxProps extends Omit<AriaComboBoxProps<SelectItemType>, "children" | "items">, RefAttributes<HTMLDivElement>, CommonProps {
     shortcut?: boolean;
-    type?: ComboBoxTypes;
     items?: SelectItemType[];
     popoverClassName?: string;
     shortcutClassName?: string;
@@ -50,16 +46,12 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
     const first = inputValue?.split(value?.supportingText)?.[0] || "";
     const last = inputValue?.split(first)[1];
 
-    useHotkeys("meta+k", () => state?.setOpen(true), {
-        enabled: !isDisabled && shortcut,
-    });
-
     return (
         <AriaGroup
             {...otherProps}
             className={({ isFocusWithin, isDisabled }) =>
                 cx(
-                    "relative flex w-full items-center gap-2 rounded-lg bg-primary shadow-xs ring-1 ring-border-primary outline-hidden transition-shadow duration-200 ease-in-out ring-inset",
+                    "relative flex w-full items-center gap-2 rounded-lg bg-primary shadow-xs ring-1 ring-border-primary outline-hidden transition-shadow duration-100 ease-linear ring-inset",
                     isDisabled && "cursor-not-allowed bg-disabled_subtle",
                     isFocusWithin && "ring-2 ring-border-brand",
                     sizes[size].root,
@@ -77,6 +69,7 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
                         {last && <p className={cx("-ml-[3px] text-md text-tertiary", isDisabled && "text-disabled")}>{last}</p>}
                     </span>
                 )}
+
                 <AriaInput
                     placeholder={placeholder}
                     className="z-10 w-full appearance-none bg-transparent text-md text-transparent caret-alpha-black/90 placeholder:text-placeholder focus:outline-hidden disabled:cursor-not-allowed disabled:text-disabled disabled:placeholder:text-disabled"
@@ -106,25 +99,27 @@ const ComboBoxValue = ({ size, isDisabled, shortcut, placeholder, shortcutClassN
     );
 };
 
-export const ComboBox = ({ type = "search", placeholder = "Select", shortcut = true, size = "sm", children, items, ...rest }: ComboBoxProps) => {
+export const ComboBox = ({ placeholder = "Search", shortcut = true, size = "sm", children, items, ...rest }: ComboBoxProps) => {
     const placeholderRef = useRef<HTMLDivElement>(null);
     const [popoverWidth, setPopoverWidth] = useState("");
 
     // Resize observer for popover width
     const onResize = useCallback(() => {
         if (!placeholderRef.current) return;
-        let divRect = placeholderRef.current?.getBoundingClientRect();
+
+        const divRect = placeholderRef.current?.getBoundingClientRect();
+
         setPopoverWidth(divRect.width + "px");
     }, [placeholderRef, setPopoverWidth]);
 
     useResizeObserver({
         ref: placeholderRef,
-        onResize: onResize,
         box: "border-box",
+        onResize,
     });
 
     return (
-        <SelectContext.Provider value={{ type, size }}>
+        <SelectContext.Provider value={{ size }}>
             <AriaComboBox menuTrigger="focus" {...rest}>
                 {(state) => (
                     <div className="flex flex-col gap-1.5">

@@ -68,7 +68,7 @@ interface LinkProps extends CommonProps, DetailedHTMLProps<Omit<AnchorHTMLAttrib
 
 export type SocialButtonProps = ButtonProps | LinkProps;
 
-const SocialButton = ({ size = "lg", theme = "brand", social, className, children, disabled, ...rest }: SocialButtonProps) => {
+export const SocialButton = ({ size = "lg", theme = "brand", social, className, children, disabled, ...rest }: SocialButtonProps) => {
     const Component = "href" in rest ? "a" : AriaButton;
 
     const isIconOnly = !children;
@@ -126,5 +126,3 @@ const SocialButton = ({ size = "lg", theme = "brand", social, className, childre
         </Component>
     );
 };
-
-export default SocialButton;

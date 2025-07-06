@@ -15,7 +15,7 @@ const sizes = {
     },
 };
 
-const Dot = (props: HTMLAttributes<HTMLOrSVGElement> & { size?: "sm" | "md" }) => {
+export const Dot = (props: HTMLAttributes<HTMLOrSVGElement> & { size?: "sm" | "md" }) => {
     const { size = "md" } = props;
     return (
         <svg width={sizes[size].wh} height={sizes[size].wh} viewBox={`0 0 ${sizes[size].wh} ${sizes[size].wh}`} fill="none" {...props}>
@@ -23,5 +23,3 @@ const Dot = (props: HTMLAttributes<HTMLOrSVGElement> & { size?: "sm" | "md" }) =
         </svg>
     );
 };
-
-export default Dot;

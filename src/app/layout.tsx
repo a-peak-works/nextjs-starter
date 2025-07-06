@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import { cx } from "@/components/utils/cx";
 import { RouteProvider } from "@/providers/router-provider";
 import { Theme } from "@/providers/theme";
 import "@/styles/globals.css";
+import { cx } from "@/utils/cx";
 
 const inter = Inter({
     subsets: ["latin"],
